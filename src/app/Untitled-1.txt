@@ -1,0 +1,21 @@
+1.	distinctUntilChanged() emits a value only if it is different from the previous one.
+2.	debounceTime RxJS operator Control Observable streams commonly used in search inputs to reduce API calls. Wait for a pause emits latest value.
+3.	setTimeout JavaScript function for Delay code execution.
+BehaviorSubject async streams ke liye bana hai
+Signal UI state ke liye bana hai
+
+Zone.js is a JavaScript library who track asynchronous event (http request, timer event).and tell angular to update UI with change detection.
+if you don’t have zone.js then you can do manually. With changedetectionRef.detectCange();In angular 19 provide optional zone.js and optimizedCD means no need for change detection in everycall.It can used multiple event in a batch and update.
+Key Features and Updates in Angular 18
+1.	Zoneless Change Detection:- Angular can run without zone.js. This reduces unnecessary checks and can improve performance in large apps
+2.	 Signals and Enhanced Reactivity:- Angular 18 continues improving Signals,
+3.	Function Based Redirects
+4.	Better SSR
+5.	Stable @if,@ngFor,@switch
+6.	Standalone Components by Default
+
+Key Features and Updates in Angular 19
+1.	Standalone Components by Default
+2.	Hot Module Replacement (HMR:- Development workflow becomes much faster with HMR support for templates and styles, so you see changes instantly without full page reloads while preserving application state
+3.	
+
