@@ -1,0 +1,162 @@
+Question:-Callback vs Promise
+=>Callback passed as function
+=>Promise return object
+=>Callback Can use nesting
+=>Promise avoide nesting
+
+
+Question:- Why do we use callback functions?
+Answer=>To handle asynchronous operations,To make code reusable.
+
+Question:What is Promise
+Answer:-Promise is object,who handle asynchronous operation.It has three states 
+1=>Pending,
+2=>Fullfilled,
+3=>Rejected.
+
+Question:-What is async/await.
+Answer:-async / await is a JavaScript feature used to handle asynchronous code in a synchronous-looking way.
+Used before function
+return Promise
+
+
+
+Question:-What is Promise chaining?
+
+Answer:-Promise chaining is the process of executing multiple asynchronous operations one after another, where each .then() returns a new Promise,every .then pass the value.
+
+new Promise((resolve) => {
+  resolve(5);
+})
+.then(result => {
+  return result * 2;
+})
+.then(result => {
+  return result * 3;
+})
+.then(finalResult => {
+  console.log(finalResult);
+});
+
+Question:-Cold Observable
+
+Lazy: Starts producing values only when someone subscribes.
+
+Independent streams: Each subscriber gets its own separate set of values.
+
+Use case: HTTP requests, API calls, anything where each subscriber should get fresh data.
+
+
+Hot Observable
+
+Eager: Starts producing values immediately, regardless of subscribers.
+
+Shared stream: All subscribers get values from the same ongoing execution.
+
+Use case: Mouse movements, WebSocket events, live data streams.
+
+
+map()=>map is array method create a new array by apply function to each element of original array.
+filter()=>filter selects elements based on a condition.
+reduce()=>reduce combines array elements into one result.
+reduces the array to a single value by executing a reducer function on each element.
+
+“Cold = on-demand video, Hot = live TV channel.”
+
+
+
+Ques:-Shallow Copy in JavaScript:-
+Create new object but nested object is shared
+1->
+
+Using spread operator
+const original = { 
+  name: "John", 
+  address: { city: "Delhi" } 
+};
+
+const shallowCopy = { ...original };
+
+shallowCopy.address.city = "Mumbai";
+
+console.log(original.address.city);
+
+2->
+const original = { 
+  name: "John", 
+  address: { city: "Delhi" } 
+};
+
+const shallowCopy = Object.assign({}, original);
+
+shallowCopy.address.city = "Mumbai";
+
+console.log(original.address.city); // "Mumbai"
+
+
+
+3=>
+const original = [[1, 2], [3, 4]];
+const shallowCopy = [...original];
+
+shallowCopy[0][0] = 100;
+
+console.log(original); 
+
+
+Question:-Deep Copy
+
+Create a new copy including nested object.
+
+const original = { 
+  name: "John", 
+  address: { city: "Delhi" } 
+};
+
+const deepCopy = structuredClone(original);
+
+deepCopy.address.city = "Mumbai";
+
+console.log(original.address.city); // "Delhi"
+
+
+const original = { 
+  name: "John", 
+  address: { city: "Delhi" } 
+};
+
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+deepCopy.address.city = "Mumbai";
+
+console.log(original.address.city); // "Delhi"
+
+
+
+
+Call()=>we can borrow function some other object and use it with data some other object
+let name={
+  firstName:'danish',
+  lastname:'kamal'
+}
+let printfullname=function(){
+  console.log(this.firstName + '' + this.lastname)
+}
+let name2={
+  firstName:'Alisha',
+  lastname:'Amil'
+}
+printfullname.call(name2)---passing seprate ---run immediately
+printfullname.call(name2,[Mumbai]) passing in array arrgument ----apply()  run immediately
+
+bind()-return a function and passing seprate arrgument  -set the value of this permanently for a function.
+
+don’t invoke methode immediately copy function and immediately later.
+
+
+polyfils=>browser patch
+when browser not support new feature of javascript then polyfils patch them
+
+
+
+

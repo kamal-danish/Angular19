@@ -13,6 +13,7 @@ export const routes: Routes = [
 //     },pathMatch:'full'
 // },
 {path:'',loadComponent:()=> import('./home/home.component').then((m)=>m.HomeComponent) },
-{path:'about',component:AboutComponent }
-
+{path:'about',component:AboutComponent },
+{path:'signal',loadComponent:()=>import('./signal/signal.component').then((m)=>m.SignalComponent)},
+{path:'user',loadComponent:()=>import('./store/users/user/user.component').then((m)=>m.UserComponent)}
 ];

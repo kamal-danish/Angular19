@@ -1,0 +1,9 @@
+<h2>User List</h2>
+
+<div *ngIf="loading$ | async">Loading...</div>
+
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{ user.name }} - {{ user.email }}
+  </li>
+</ul>

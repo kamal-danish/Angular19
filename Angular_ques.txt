@@ -1,0 +1,100 @@
+NgZone:-runOutsideAngular(),run()
+
+
+ startCounter() {
+    // Ye code Angular ke zone ke bahar chalega
+    this.ngZone.runOutsideAngular(() => {
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        console.log('Counter:', i);
+
+        // Jab counter 5 tak pohche, Angular ke zone mein run kar ke UI update karenge
+        if (i === 5) {
+          clearInterval(interval);
+          this.ngZone.run(() => {
+            this.counter = i; // Ab Angular UI update karega
+          });
+        }
+      }, 1000);
+    });
+  }
+
+  runOutsideAngular():
+
+Counter har second badh raha hai, lekin Angular UI update nahi kar raha.
+
+Isse performance improve hoti hai, kyunki Angular baar-baar check nahi karega.
+
+run():
+
+Jab counter 5 ho jaata hai, tab hum Angular ko batate hain ki ab UI update kar do.
+
+Ab counter value template mein dikh jaayegi.
+
+
+
+Async=>
+users$ | async subscribes to the HTTP Observable.
+
+When the API responds, Angular updates the list automatically.
+
+If the component is destroyed, async unsubscribes automatically.
+
+trackBy=>
+Angular re-use dom element when table update
+without trackby Angular re-render the whole table when a new row is added
+
+
+
+1.	distinctUntilChanged() emits a value only if it is different from the previous one.
+2.	debounceTime RxJS operator Control Observable streams commonly used in search inputs to reduce API calls. Wait for a pause emits latest value.
+3.	setTimeout JavaScript function for Delay code execution.
+BehaviorSubject async streams ke liye bana hai
+Signal UI state ke liye bana hai
+
+Zone.js is a JavaScript library who track asynchronous event (http request, timer event).and tell angular to update UI with change detection.
+if you don’t have zone.js then you can do manually. With changedetectionRef.detectCange();In angular 19 provide optional zone.js and optimizedCD means no need for change detection in everycall.It can used multiple event in a batch and update.
+Key Features and Updates in Angular 18
+1.	Zoneless Change Detection:- Angular can run without zone.js. This reduces unnecessary checks and can improve performance in large apps
+2.	 Signals and Enhanced Reactivity:- Angular 18 continues improving Signals,
+3.	Function Based Redirects
+4.	Better SSR
+5.	Stable @if,@ngFor,@switch
+6.	Standalone Components by Default
+
+Key Features and Updates in Angular 19
+1.	Standalone Components by Default
+2.	Hot Module Replacement (HMR:- Development workflow becomes much faster with HMR support for templates and styles, so you see changes instantly without full page reloads while preserving application state
+3.	
+
+Signals:-Reactive Premitive.for UI state update ui state.
+Data Type:Computed Signal and writtable Signal
+
+Computed Signal=>this is readonly don't change forcefully.its update when the its dependent signal change. 
+Effect:=>An effect is a function that reacts to signal changes.
+
+
+For Loop contextual Variables | $last $first $odd $even $index $count
+
+@if(last){
+  same as all
+}
+
+
+ViewEncapsulation-----To protect compoenent css and template.
+ViewEncapsulation.ShadowDom--true isloation don't use global css ---
+ViewEncapsulation.none-make global component css---global css
+ViewEncapsulation.Emulated-by default use global css and own compoenent css---compoenent only
+
+
+How Angular Decides Polyfills
+
+Angular checks:
+
+browserslist
+
+
+In your project root:
+
+.browserslistrc
