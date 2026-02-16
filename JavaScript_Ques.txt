@@ -23,7 +23,8 @@ return Promise
 
 Question:-What is Promise chaining?
 
-Answer:-Promise chaining is the process of executing multiple asynchronous operations one after another, where each .then() returns a new Promise,every .then pass the value.
+Answer:-Promise chaining is the process of executing multiple asynchronous operations one after another, 
+where each .then() returns a new Promise,every .then pass the value.
 
 new Promise((resolve) => {
   resolve(5);
@@ -38,6 +39,13 @@ new Promise((resolve) => {
   console.log(finalResult);
 });
 
+
+Observable:-they are data stream that emit value over time.
+produce value.basically data producer
+
+Observer:-they are object received data form Observable.
+handle emitted value.data consumer.
+method-next(),error(),complete()
 Question:-Cold Observable
 
 Lazy: Starts producing values only when someone subscribes.
