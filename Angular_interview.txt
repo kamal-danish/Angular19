@@ -1,0 +1,151 @@
+SwitchMap:- (RxJS / Angular)
+
+switchMap is an RxJS operator used to map values from one observable into a new observable, while cancelling the previous inner observable if a new value comes in.
+
+👉 In simple words:
+If a new value arrives → old request/work is cancelled → new one starts.
+API calls based on user input (search box)
+
+this.form.valueChanges.pipe
+(debounceTime(200),
+switchMap(value=>this.api.getUser(value))
+).subscribe(result=>{
+    this.user=result;
+})
+
+mergeMap:-Run all apis in Parallel.like i have list of order and i want this all details by id then use merge map:
+Load multiple data at once
+forms([1,2,3]).pipe(
+    mergeMap(id=>this.userService.getuser(id)).subscribe(res=>this.user.push(res))
+)
+
+concateMap:-Save data in order -in queue
+form([1,2,3]).pipe(
+    concateMap(id=>this.service.getuser(id)).subscribe(res=>this.user.push(res))
+)
+
+exhaustMap:-Ignore New API Until Current Completes
+
+fromEvent(this.loginBtn.nativeElement, 'click').pipe(
+    exhaustMap(() => this.userService.getUser(1))
+  ).subscribe(res => console.log(res));
+
+
+forkJoin:-Waits for all APIs to finish.Then gives single combined result
+forkJoin({
+    users: this.api.getUsers(),
+    orders: this.api.getOrders(),
+    products: this.api.getProducts()
+  }).subscribe(result => {
+
+    console.log(result);
+
+    // Access like this
+    console.log(result.users);
+    console.log(result.orders);
+    console.log(result.products);
+
+  });
+
+
+
+Promise vs Observable:
+
+Promise emiited single value like call api->response->Done
+login Api File Upload One Time data-fetch
+eager(runs immediately)
+not cancelled
+no operator
+
+fetch('/api/user')
+  .then(res => res.json())
+  .then(data => console.log(data)); //Runs immediately. One result only.
+
+
+  Observable:-Emitted multiple value over time:
+  Lazy (runs only when subscribe)
+  unsubscribes when needed
+  operator:-map switchMap,debounce,retry
+
+  this.http.getUser().subscribe(res=>res.data) //Runs only on subscribe. Can cancel.
+
+Why Angular Prefers Observables:-
+  Promise is good for single async operations, but Angular prefers Observables because they support streams, 
+  cancellation, lazy execution, and powerful operators which are essential for reactive UI applications.
+  1=>Reactive Architecture
+  2=>Cancellation
+  3=>Powefull Operator-switchmap
+  4=>Prevent Memory Leakage.
+
+
+
+APP_INITIALIZER function must return:
+
+✅ Promise
+OR
+✅ Observable
+
+runs config file before app start check auth environment must run promise and observable.
+
+Webpack:-
+Webpack is a module bundler used to bundle JavaScript, CSS, images, and other assets into optimized files for web apps.Angular 2+
+
+esbuild:-bundler/transpiler --very fast Angular 17+
+vite:-dev server+bundler ---HMR
+
+
+
+angular.json is the main configuration file of an Angular workspace.
+It controls how your Angular project is:
+
+Built
+
+Served
+
+Tested
+
+Generated
+
+Deployed
+define all app here in projects 
+
+pack.json-configuration file manage serve build dependecies.
+pack.lock.json auto generated file all installed version tree version here.
+
+
+tsconfig.json is the TypeScript configuration file.
+It tells TypeScript compiler:
+
+How to compile code
+
+Which files to include
+
+Which JS version to generate
+
+Which strict rules to apply
+
+
+runtime.js
+
+👉 Webpack / Build Runtime Loader
+
+Contains
+
+Module loading logic
+
+Chunk loading mapping
+
+Lazy loading handling
+
+Dependency resolution at runtime
+
+
+Analyze Bundle Size
+ng build --stats-json
+
+
+ng-container ----grouping html don't need extra tag not show in dom.
+ng-template:-show in dom when condition true.
+ng-content-show parent data in child if parent has used child selector./
+
+

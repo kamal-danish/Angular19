@@ -101,3 +101,21 @@ In your project root:
 
 takeUntill()=>emiited value from source Observable and stop when other Observable emitted.
 tap()=>does not change in emitted value use for log debuuging observer.
+
+
+
+What Are Core Parts of NgRx?
+
+👉 Store-----Central Place to store application state
+👉 Actions-----Describe wt happend 
+👉 Reducers-----maintaine state old state state and update
+👉 Effects----for handing api call http request
+👉 Selectors-----Used to read data from store
+
+this.store.dispatch(loadUsers()); Sending action to store
+this.store.select();read data from store
+
+What is Redux Pattern in NgRx?
+One way data flow
+Actions trigger state changes
+Immutable state
