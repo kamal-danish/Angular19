@@ -14,6 +14,22 @@ Answer:-Promise is object,who handle asynchronous operation.It has three states
 2=>Fullfilled,
 3=>Rejected.
 
+const MyPromise = return new Promise((resolve,reject)=>{
+  let success=true
+  if(success){
+console.log('Hello')
+resolve()
+  }else{
+    reject()
+  }
+})
+
+MyPromise.then((result)=>{
+console.log(result)
+}).catch((error)=>{
+console.log(error)
+})
+
 Question:-What is async/await.
 Answer:-async / await is a JavaScript feature used to handle asynchronous code in a synchronous-looking way.
 Used before function

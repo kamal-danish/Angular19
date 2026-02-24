@@ -85,7 +85,7 @@ for (let i = 1; i <= 3; i++) {
 function x(){
     var i=1
     setTimeout(function () {  /**function () {console.log(i)}   this is clouser   ------ setTimeout take callback function attached timer and print*/ 
-        console.log(i)
+        console.log(i) //this function is closure because it remember the variable i from its lexical scope even after x() has finished executing
     }, 1000);
     console.log('hello')
 }
