@@ -1,0 +1,67 @@
+Question:-What is the difference between id and class?
+Answer:-Id is unique for element
+class:-can be used multiple
+
+Question:-semantic HTML tags?
+Answer:-Describe meaning of tag,SEO friendly
+<section>,<header>,<footer>,<nav>
+
+Question:-inline, block and inline-block
+Answer:-inline:-Appear in the same line,width and height can not be set,takes content width
+Block:-Start new Line  ,height and width can be set,full width
+inline-Block:-Appears in same line,height and width can be set and custome width
+
+Question:-Z-index
+Answer:-z-index controls which element appears on top when elements overlap.
+
+Question:-Flexbox and Grid
+Answer:-Flexbox is one dimensional,Work on row, good for alignment
+Grid work for row and column,Two dimensional,good for layout
+
+Question:-What is position property
+Answer:-Relative,Fixed,Sticky,Absolute,static
+
+Question:-Difference between margin and padding
+Answer:-Margin taking Outside space
+Padding:inside space
+
+Question:What is display: none vs visibility: hidden
+Answer:-Removed from layout ,Reserve Space
+
+Question:-Difference between opacity and visibility
+Answer:-Element clicked,if visibility hidden not clicked,we can set opacity value 0-1.
+
+Question:-What is BEM methodology
+Answer:-block__element--modifier
+card           ---block
+card__title    ---element
+card--active  ----modifier ----change style or state
+
+Question:-Shadow dom
+Answer:used to encapsulate HTML, CSS, and JavaScript of a 
+component so that its styles and structure do not affect the rest of the page.
+
+Shadow DOM creates a private DOM inside an element.
+
+Question:What is the difference between <div> and <span>
+Answer:- Div is block elemnt take full width and span is inline element,take content width
+
+Question:What is DOCTYPE
+Answer:Tells browser to use HTML5 standard rendering mode.
+
+Question:-Hide an element in 3 ways
+Answer:-display: none
+visibility: hidden
+opacity: 0
+
+
+Question:-css vs scss vs sass
+css does not require compilation,no function,no variable,no nested
+scss required compilation,function,variable,nested,css prepocessor
+sass required compilation,css prepocessor,no need cusrly braces
+
+Question:-Void Elements
+Answer:Some HTML tags do not have closing tags.
+<br>,<hr>,<input type="text">
+
+

@@ -149,3 +149,33 @@ ng-template:-show in dom when condition true.
 ng-content-show parent data in child if parent has used child selector./
 
 
+Control Flow:-@if,@for,@switch,@defer
+
+@defer-using for lazy load UI block,performance optimization
+
+Hard to read
+
+Extra <ng-template>
+
+Question:-If I want to add data to an array without mutating the original array
+Answer:-spread operator,concat,slice
+this.items = [...this.items.slice(), newItem];
+
+Question:-Remove item without mutating array
+this.items = this.items.filter(item => item.id !== id);
+Question:-Update item in array (Immutable way)
+users = [
+ {id:1,name:'A'},
+ {id:2,name:'B'}
+];
+
+this.users = this.users.map(user =>
+  user.id === 2 ? {...user, name:'Updated'} : user
+);
+
+Here:
+
+map() creates new array
+
+Spread creates new object
+

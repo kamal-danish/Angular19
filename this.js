@@ -23,8 +23,8 @@ const obj1={
     a:10,
     x:function(){
         console.log(this.a)
-        // print a:10
-    }
+        // print a:10  
+    }//x is a normal function. When a normal function is called using an object, this refers to that object.
 }
 obj1.x();
 
@@ -35,13 +35,13 @@ const obj2={
         // window()
     }
 }
-obj2.x();
+obj2.x(); //They take this from their lexical scope (parent scope). rrow functions do NOT have their own
 
 const obj3={
     a:10,
     x:function(){
         const y=()=>{
-console.log(this) //enclosing lexical context
+console.log(this) //enclosing lexical context They inherit this from the surrounding function.
         }
         
         y()

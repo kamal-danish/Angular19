@@ -1,7 +1,7 @@
 document.querySelector('#grandparent')
 .addEventListener('click', ()=> {
     console.log('grandparent element clicked');
-},true);
+},false);
 
 document.querySelector('#parent')
 .addEventListener('click',(e)=> {
