@@ -178,6 +178,9 @@ Here:
 map() creates new array
 
 Spread creates new object
+Question:- ViewEncapsulation
+Answer:-View Encapsulation in Angular is a feature that isolates component styles to prevent
+them from affecting other components, and it supports Emulated, ShadowDom, and None modes.
 
 
 Angular LifeCycle:-
@@ -190,3 +193,130 @@ ngAfterViewInit:-When Component View And child component Load
 ngAfterViewChecked:- When Component View Checked
 ngOnDestroy:- When You goto other Component route change
 
+1.Emulated:- By default use global css.style scoped  
+2.ShadowDom:-Component style isolate .does not affect gobal css
+3.None:- make component style global
+
+Question:-trackBy
+Answer:-trackBy is a function used with ngFor to help Angular identify list items uniquely. 
+By default, Angular tracks by object reference, which can cause full DOM re-render when array reference changes. Using trackBy with a unique identifier 
+like ID ensures only changed items are updated, improving performance significantly in large lists.
+
+Question:-Tree Shaking
+Answer:-Tree shaking is a technique used by modern JavaScript bundlers 
+to remove unused (dead) code from the final production bundle.
+
+Question:Pipe
+Answer:-A pipe transforms data in the template.
+Angular has:
+
+Built-in pipes
+
+Custom pipes
+
+Question:-Pure Pipe
+Answer:-A pipe runs when input reference change
+Question:Impure Pipe
+Answer:-On Every change like event trigger,every async update
+
+
+Subject:-Subject is observable and observer both.it is hot.all subscribe share same execution
+no initial value.
+
+Behaviour Subject:-it has initial value when subscribe get latest value.it stores last Emitted
+value.
+
+Replay Subject:-no required initial value.store previous value.buffer size add if 
+we write 2 then every subsriber got last 2 value.
+
+const subject = new ReplaySubject<any>(2);
+
+
+
+subject.next(1);
+subject.next(2);
+subject.next(3);
+
+subject.subscribe(v => console.log(v));[2,3]
+
+
+Async Subject:-Emitted last value after Completes.Wait for result.
+
+const subject = new AsyncSubject();
+
+subject.subscribe(v => console.log(v));
+
+subject.next(1);
+subject.next(2);
+subject.next(3);
+
+subject.complete();
+
+
+takeUntill():-An Angular with RxJS, takeUntil is an operator used to automatically unsubscribe from an Observable 
+when another Observable emits a value.
+
+It’s commonly used to prevent memory leaks in components.
+
+private subject=new Subject<void>
+this.userservice.getUser().pipe(takeUntil(this.subject)).subscribe(res=>res.json())
+
+
+How do you handle error handling in RxJS streams? (catchError, retry, retryWhe  n)
+
+share()=>Cold observable into hot observable
+multiple subsriber share same excution.multicasting.don not share previous value.
+
+const data$ = this.http.get('/api/users').pipe(
+  share()
+);
+
+data$.subscribe();
+data$.subscribe();
+
+Only 1 HTTP call happens
+
+shareReplay()=>Cold observable into hot observable
+multiple subsriber share one excution from cache.multicasting from buffer
+
+const data$ = this.http.get('/api/users').pipe(
+  shareReplay(1)
+);
+
+data$.subscribe();
+data$.subscribe();
+
+Only 1 HTTP call happens
+
+
+
+
+JIT:-Compilation happen in browser at runtime
+when user open app 
+app loads
+angular compiler run in browser
+template get compiled
+
+good for dev
+easy debugging
+
+AOT:-better for build
+Compilation happen in build time
+template get compiled at build time
+
+when user open app everything compiled browser directly run js.
+
+css-standard styling language .no need compilation browser understand directly
+scss -browser compile we can define variable, nested style
+sass-no need semicolon,curly braces. 
+
+AppModule -> RouterModule.forRoot()  => sets main router
+
+FeatureModule -> RouterModule.forChild() => adds child routes
+
+
+take(1) emits the first value from an observable and then completes the subscription automatically.
+
+of(1,2,3,4).pipe(
+  take(1)
+).subscribe(x => console.log(x)); //1
