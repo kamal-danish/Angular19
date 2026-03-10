@@ -179,3 +179,14 @@ map() creates new array
 
 Spread creates new object
 
+
+Angular LifeCycle:-
+ngOnChanges:-When parent and child relation and Parent send data to child
+ngOnInIt:-Components Initialize One Time Run
+ngDoCheck:-When Angular Chenge Detection
+ngAfterContentInIt:-When ng-contetnt load in child component
+ngAfterContentChecked:- When content Checked (check projected content changed through chnage detection)
+ngAfterViewInit:-When Component View And child component Load
+ngAfterViewChecked:- When Component View Checked
+ngOnDestroy:- When You goto other Component route change
+

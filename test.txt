@@ -1,0 +1,105 @@
+Question: Which framework Angular uses for testing?
+Answer:-Jamine is testing framework
+
+Question:-What is Karma?
+Answer:-Test runner excute test cases in browser.
+
+Question:-What is TestBed?
+Answer:-Angular Utility for configuring testing environment.
+
+Write test → Jasmine
+Run test → Karma
+Angular testing environment → TestBed
+
+Question:What does fixture.detectChanges() do?
+Answer:-Triggers Angular change detection,Updates DOM
+
+Question:Difference between TestBed.createComponent() and new Component()?
+Answer:-TestBed → Angular environment
+new → plain object
+
+
+Question:Why use HttpTestingController?
+Answer:To mock HTTP API calls,No real backend required
+
+Question:-What is spy?
+Answer:-Used to mock function calls or monitor a method call.
+
+Question:-What is code coverage?
+Answer:-Percentage of code tested
+
+ng test --code-coverage
+You will see:
+
+Statements %
+
+Branches %
+
+Functions %
+
+Lines %
+
+Question:Common spyOn Methods?
+Answer:-and.returnValue():-return fake value
+and.callThrough():-call original method
+toHaveBeenCalled():-check if function called
+toHaveBeenCalledTimes():-check number of calls
+
+
+Question:-Important Angular Testing Utilities
+Answer:-=
+fakeAsync:-Test async code--use for async code test
+tick():-simulate time--use for async code test
+ComponentFixture:-component instance + DOM access
+
+
+Question:how to test Async Pipe ?
+Answer-fixture.detectChanges();
+
+Question:-beforeEach?
+Answer:-If you have many test case than you have a common setup this setUp will writen inside beforeEach
+testing function who run before each test case.
+
+
+Question:-describe:
+Answer:-testSuit,Group of test cases.
+Question:-it
+Answer:-test cases
+
+Qustion:-expect
+Answer:-assertion
+
+
+toBeTruthy()	value should be truthy
+toBeFalsy()	value should be falsy
+toBe(value)	exact value match
+toEqual(value)	deep object comparison
+
+
+it('should return user list from API', () => {
+
+  service.getUsers().subscribe(res => {
+
+    expect(Array.isArray(res)).toBeTrue();
+    expect(res.length).toBeGreaterThan(0);
+
+  });
+
+  const req = httpMock.expectOne(req => req.url.includes('/users'));
+
+  expect(req.request.method).toBe('GET');
+
+  req.flush([
+    { id: 1, name: 'John' },
+    { id: 2, name: 'David' },
+    { id: 3, name: 'Sam' }
+  ]);
+
+});
+
+<router-outlet> Angular में वह जगह है जहाँ route वाला component dynamically show होता है।
+
+Custom Decorator is a function that can be applied to a class, property, method, or parameter to modify its behavior or add metadata at runtime.
+Dom Sanitization is used for clean unsafe content.remove malicious code.
+
+In JavaScript, a function is a block of code that is written to perform a specific task
