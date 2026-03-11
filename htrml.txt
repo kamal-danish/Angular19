@@ -4,7 +4,7 @@ class:-can be used multiple
 
 Question:-semantic HTML tags?
 Answer:-Describe meaning of tag,SEO friendly
-<section>,<header>,<footer>,<nav>
+<section>,<header>,<footer>,<nav> <main>,<artcle>,<time>
 
 Question:-inline, block and inline-block
 Answer:-inline:-Appear in the same line,width and height can not be set,takes content width

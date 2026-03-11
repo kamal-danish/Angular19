@@ -83,7 +83,7 @@ Use case: Mouse movements, WebSocket events, live data streams.
 map()=>map is array method create a new array by apply function to each element of original array.
 filter()=>filter selects elements based on a condition.
 reduce()=>reduce combines array elements into one result.
-reduces the array to a single value by executing a reducer function on each element.
+reduces an array to a single value by applying a function on each element.
 
 “Cold = on-demand video, Hot = live TV channel.”
 

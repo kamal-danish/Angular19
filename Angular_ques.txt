@@ -111,7 +111,7 @@ What Are Core Parts of NgRx?
 👉 Reducers-----maintaine state old state state and update
 👉 Effects----for handing api call http request
 👉 Selectors-----Used to read data from store
-
+signa
 this.store.dispatch(loadUsers()); Sending action to store
 this.store.select();read data from store
 

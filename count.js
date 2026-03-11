@@ -13,3 +13,17 @@ function x(){
 
 }
 console.log(x())
+
+
+let obj={}
+let array1=["a","1","b","2","c","3","d","5"]
+function other(){
+for (let i = 0; i < array1.length; i+=2) {
+   
+obj[array1[i]] = array1[i+1]
+    
+    
+}
+return obj;
+}
+console.log(other())
