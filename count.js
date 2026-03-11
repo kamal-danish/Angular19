@@ -49,3 +49,7 @@ console.log(other())
 //     acc[item] = (acc[item] || 0) +1
 //     return acc;
 // },{})
+
+// const str = 'HELLO';
+// const arr = Array.from(str);
+// console.log(arr);
