@@ -27,3 +27,25 @@ obj[array1[i]] = array1[i+1]
 return obj;
 }
 console.log(other())
+
+// const arr = ["apple", "banana", "apple", "orange", "banana", "apple"];
+// const count = {};
+
+// arr.forEach(item => {
+//   count[item] = (count[item] || 0) + 1;
+// });
+
+// console.log(count);
+
+// const count = {};
+
+// for (let char of str) {
+//   count[char] = (count[char] || 0) + 1;
+// }
+
+// console.log(count);
+
+// const count1 = array.reduce((acc,item)=>{
+//     acc[item] = (acc[item] || 0) +1
+//     return acc;
+// },{})
