@@ -1,0 +1,9 @@
+delete obj.id;
+
+console.log(obj);
+
+const obj = { name: 'Danish', id: 1 };
+
+const { id, ...newObj } = obj;
+
+console.log(newObj);

@@ -47,3 +47,6 @@ console.log(duplicates);
 // let result = arr1.filter(item => map.has(item.id));
 
 // console.log(result);
+
+// let duplicate=array.filter((item,i)=>array.indexOf(item)!==i )
+// console.log(duplicate)

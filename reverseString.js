@@ -8,3 +8,8 @@ for (let index = str.length-1; index >=0; index-- ){
 return rev;;
 }
 console.log(x())
+
+
+
+let revstr=str.split('').reverse().join('')
+console.log(revstr)

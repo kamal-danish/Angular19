@@ -28,7 +28,7 @@ document.querySelector('#child')
 //     console.log('parent element clicked');
 // },true);
 
-// document.querySelector('#child')
+// document.querySelector('#child'),
 // .addEventListener('click', ()=> {
 //     console.log('child element clicked');
 // },true);

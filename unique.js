@@ -18,3 +18,13 @@ function x()
 return unique;
 }
 console.log(x())
+
+
+let arr=[1,2,2,3,4]
+// let unique=arr.filter((item,i)=>arr.indexOf(item)===i)
+let result = arr.reduce((acc,val)=>{
+    if(!acc.includes(val)){
+        acc.push(val)
+    }
+    return acc
+},[])

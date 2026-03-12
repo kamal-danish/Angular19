@@ -159,6 +159,8 @@ Extra <ng-template>
 
 Question:-If I want to add data to an array without mutating the original array
 Answer:-spread operator,concat,slice
+this.item = this.item.concat(4);
+this.item = [...this.item,4]
 this.items = [...this.items.slice(), newItem];
 
 Question:-Remove item without mutating array
@@ -462,3 +464,52 @@ Hard to manage errors
 Better Solution – use switchMap
 this.api.getUser().pipe(switchMap(user=>this.api.getUserLIst(user.id))).subscribe(order=>console.log(order))
 
+Interface:-An interface defines the structure of an object.
+type can define objects, unions, primitives, functions,
+enum is used to define a set of named constants.
+
+@ViewChild is used when you want to get a single element or component from the view.
+@ViewChild('nameInput') input!: ElementRef;
+
+  ngAfterViewInit() {
+    console.log(this.input.nativeElement.value);
+  }
+
+  @ViewChildren is used when there are multiple elements or components.
+  @ViewChildren('item') items!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    this.items.forEach(el => {
+      console.log(el.nativeElement.textContent);
+    });
+  }
+
+  @ContentChild
+  <app-card>
+  <p #contentText>Hello World</p>
+</app-card>
+<div class="card">
+  <ng-content></ng-content>
+</div>
+ @ContentChild('contentText') text!: ElementRef;
+
+  ngAfterContentInit() {
+    console.log(this.text.nativeElement.textContent);
+  }
+
+@ContentChildren:-Used when multiple projected elements exist.
+<app-card>
+  <p #item>Item 1</p>
+  <p #item>Item 2</p>
+  <p #item>Item 3</p>
+</app-card>
+
+custome Directive:-
+this.el.nativeElement.style.color = 'red';
+
+Renderer2:-Renderer2 is a service used to safely manipulate the DOM
+such as styles, attributes, classes, and events without directly accessing the native DOM.
+this.renderer.setStyle(this.el.nativeElement, 'color', 'blue');
+
+
+@HostListener in Angular is a decorator used to listen to DOM events on the host element
