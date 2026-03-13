@@ -97,6 +97,14 @@ it('should return user list from API', () => {
 
 });
 
+Question:-Skip a Test Case 
+Answer:-(xit)
+
+Question:-Run Only One Test
+Answer:-fit('should subtract numbers', () => {
+  expect(sub(5,3)).toBe(2);
+});
+
 <router-outlet> Angular में वह जगह है जहाँ route वाला component dynamically show होता है।
 
 Custom Decorator is a function that can be applied to a class, property, method, or parameter to modify its behavior or add metadata at runtime.
