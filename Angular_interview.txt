@@ -513,3 +513,21 @@ this.renderer.setStyle(this.el.nativeElement, 'color', 'blue');
 
 
 @HostListener in Angular is a decorator used to listen to DOM events on the host element
+
+
+Question:-take(1)
+take first emiited value and unsubscribe automatically
+source$.pipe(
+  take(1)
+).subscribe({
+  next: val => console.log('take(1):', val),
+  complete: () => console.log('take(1) completed')
+});
+
+Question:-first()
+Answer:-same as take(1).mostly used for condition throw error if no value
+source$.pipe(
+  first(val => val > 2)
+).subscribe({
+  next: val => console.log('first > 2:', val)
+});
