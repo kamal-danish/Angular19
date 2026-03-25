@@ -531,3 +531,8 @@ source$.pipe(
 ).subscribe({
   next: val => console.log('first > 2:', val)
 });
+
+
+Question:-Smart & Dumb Component
+Answer:-Smart components handle business logic and API calls,State while dumb components are 
+purely presentational and receive data via inputs and emit events via outputs,Display Data.

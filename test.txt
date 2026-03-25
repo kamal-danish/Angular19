@@ -56,6 +56,9 @@ ComponentFixture:-component instance + DOM access
 Question:how to test Async Pipe ?
 Answer-fixture.detectChanges();
 
+Question:-test without Api
+Answer:-using of from rxjs create.spy,faker.js(generate random data)
+
 Question:-beforeEach?
 Answer:-If you have many test case than you have a common setup this setUp will writen inside beforeEach
 testing function who run before each test case.
