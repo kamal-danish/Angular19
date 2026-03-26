@@ -9,7 +9,7 @@ for(let i=0;i<str.length;i++){
 
   if(count === 1){
     console.log(str[i]);
-    break;
+   
   }
 }
 

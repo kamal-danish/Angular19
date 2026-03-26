@@ -13,3 +13,7 @@ for (let i = 0; i < str.length; i++) {
 return dup;
 }
 console.log(x())
+
+
+let result = str.split('').filter((item,i)=>str.indexOf(item) !== i)
+console.log(result)
