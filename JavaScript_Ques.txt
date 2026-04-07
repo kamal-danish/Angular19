@@ -1,3 +1,6 @@
+Event loop:=-The event loop allows JavaScript to handle asynchronous operations by executing queued tasks after 
+the call stack is empty
+
 Question:-Callback vs Promise
 =>Callback passed as function
 =>Promise return object

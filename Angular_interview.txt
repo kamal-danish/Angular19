@@ -536,3 +536,67 @@ source$.pipe(
 Question:-Smart & Dumb Component
 Answer:-Smart components handle business logic and API calls,State while dumb components are 
 purely presentational and receive data via inputs and emit events via outputs,Display Data.
+
+Question:What are the main components of NgRx?
+Answer:Store:-Hold state
+Action:- Event
+Reducers:-Update State
+Selector:-Get State
+Effect:-Api call handle
+
+Component dispatches an action → Effect calls API → Reducer updates store → Component gets data via selector.
+
+Question:Custome Pipe
+Answer:-@Pipe({
+  name:'capitalize'
+})
+export class Capital implements PipeTransform{
+
+  transform(value:string):string{
+if(!value) return '';
+return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+}
+<p>{{'danish' | capitalize }}</p>
+
+
+Question:-Custome Directive
+Answer:
+@Directive({
+  name:'[appHighlight]'
+})
+export class Custome{
+  constructor(private renderer:Renderer2,private el:ElementRef){
+
+  }
+  @HostListener('mouseenter')
+  this.renderer.setStyle(this.el.nativeElement,'backgroundColor','red')
+}
+<p appHighlight>Click</p>
+
+Question:What happens if you don’t call next.handle()?
+Answer:-Request will never reach API
+
+Question:Explain interceptor params
+Answer:-intercept method takes HttpRequest and HttpHandler. HttpRequest contains request details and is immutable, 
+so we clone it to modify. HttpHandler is used to forward the request to the next interceptor or backend.
+
+Question:-What is an Interceptor in Angular
+Answer:-Interceptor is used to modify or handle HTTP requests and responses globally.
+
+Question:-next.handle() is Mandatory
+Answer:-without next,handle request will not go to API
+
+Question:-ngClass and ngStyle
+Answer:-
+ngStyle is inline style ngClass is used add/remove CSS classes dynamically
+
+Question:-How to add remove class dynamically
+Answer:-
+addClass() {
+  this.renderer.addClass(this.el.nativeElement, 'active');
+}
+
+removeClass() {
+  this.renderer.removeClass(this.el.nativeElement, 'active');
+}

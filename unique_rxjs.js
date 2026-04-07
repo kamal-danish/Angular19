@@ -1,6 +1,6 @@
 const { distinct,from,distinctUntilChanged } = require("rxjs")
 
-let array=[{id:1,name:'Danish'},{id:2,name:'Amit'},{id:1,name:'Ranjeet'}]
+ let array=[{id:1,name:'Danish'},{id:2,name:'Amit'},{id:1,name:'Ranjeet'}]
 from(array).pipe(distinct(item=>item.id)).subscribe(console.log);
 
 const unique = [...new Map(array.map(i=>[i.id,i])).values()]
