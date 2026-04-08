@@ -192,3 +192,165 @@ template literals
 let name = "Danish";
 let msg = `Hello ${name}`;
 console.log(msg);
+
+Question:What is the output of console.log(obj[1]) after assigning both obj[1] = "one"; and obj["1"] = "string one";?
+Answer:-const obj = {}; // Create an empty object
+obj[1] = 'one'; // Assign 'one' to key '1' (number is converted to string)
+obj["1"] = 'string one'; // Overwrite key '1' with 'string one'
+console.log(obj[1]); //
+
+Question:-What are the outputs when calling f1(), f2(), and f1() after 
+initializing var f1 = new fn1(); var f2 = new fn1(); in a factory pattern that generates unique IDs starting from 10?
+Answer:-function fn1() { // Outer function acting as a factory
+  let x = 10; // Local variable initialized to 10
+  return function() { // Return a closure
+    return ++x; // Increment and return x
+  }
+}
+
+var f1 = new fn1(); // Create first closure, x starts at 10
+var f2 = new fn1(); // Create second closure, x starts at 10
+
+console.log(f1()); // 11, f1's x goes from 10 to 11
+console.log(f2()); // 11, f2's x goes from 10 to 11 (separate from f1)
+console.log(f1()); // 12, f1's x goes from 11 to 12
+
+Question:-for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+Answer:-3 3 3
+
+Question:-for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+Answer:-0 1 2
+
+Question:-const obj = {};
+obj[1] = "one";
+obj["1"] = "two";
+Answer:-'two'
+
+Question:-console.log(typeof null);
+Answer:-'object'
+
+Question:-console.log(NaN === NaN);
+Answer:-false
+
+Question:-console.log({} + []);
+Answer:-0
+
+Question:-console.log("5" - 3);
+console.log("5" + 3);
+Answer:-2,'53'
+
+Question:-function fn() {
+  let x = 0;
+  return () => ++x;
+}
+
+const a = fn();
+console.log(a(), a());
+Answer:-1,2
+
+
+Question:-const obj = {
+  val: 10,
+  fn: function () {
+    return () => console.log(this.val);
+  }
+};
+
+obj.fn()();
+Answer:-10
+
+Question:-const obj = {
+  val: 10,
+  fn: function () {
+    setTimeout(function () {
+      console.log(this.val);
+    }, 0);
+  }
+};
+
+obj.fn();
+
+Answer:-undefined (or window.val)
+
+Question:-console.log(a);
+var a = 5;
+
+Answer:-undefined
+
+
+Question:-foo();
+
+function foo() {
+  console.log("A");
+}
+
+function foo() {
+  console.log("B");
+}
+
+Answer:-B
+Explaination:=The last one overrides the previous ones
+
+
+Question:-console.log("start");
+
+setTimeout(() => console.log("timeout"), 0);
+
+Promise.resolve().then(() => console.log("promise"));
+
+console.log("end");
+
+Answer:-start
+end
+promise
+timeout
+
+Question:-function fn() {
+  let x = 10;
+  return () => ++x;
+}
+
+const f1 = fn();
+const f2 = fn();
+
+console.log(f1(), f2(), f1());
+
+Answer:-11 11 12
+Explaination:-Each time you call fn(), a new execution context is created with its own x
+f1 → has its own x
+f2 → has a separate x
+
+Question:-const obj = { a: 1 };
+const { a } = obj;
+
+obj.a = 2;
+
+console.log(a);
+
+Answer:-1
+
+Question:-let arr = [1, 2];
+let ref = arr;
+
+ref.push(3);
+
+console.log(arr);
+
+Answer:-[1,2,3]
+
+Question:-for (var i = 0; i < 3; i++) {
+  ((i) => setTimeout(() => console.log(i), 0))(i);
+}
+Answer:-0 1 2
+
+Question:-console.log(0 == false);
+console.log("" == false);
+console.log([] == false);
+
+Answer:-true
+true
+true

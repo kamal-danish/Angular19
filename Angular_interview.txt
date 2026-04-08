@@ -600,3 +600,14 @@ addClass() {
 removeClass() {
   this.renderer.removeClass(this.el.nativeElement, 'active');
 }
+
+
+Question:-Describe the process for creating an Angular library and the benefit of using a CanLoad guard for lazy loading.
+Answer:-Angular libraries are used to create reusable, modular code that can be shared across multiple applications. 
+They are built using Angular CLI and can be published as npm packages
+ng generate library my-lib
+ng build my-lib
+
+CanLoad is a route guard used to prevent loading of lazy-loaded modules.
+Prevents unnecessary bundle loading.
+Improves performance
