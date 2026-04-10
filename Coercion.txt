@@ -1,0 +1,44 @@
+console.log("5" + 2); "52" + with string → concatenation
+
+console.log("5" - 2); //3 - forces number conversion
+
+console.log(true + false); //1 
+Answer:- 1
+Explaination:-true=1 and false=0 
+
+console.log(true + "1");
+Answer:-true1
+Explaination:-string present → everything becomes string
+
+console.log(undefined + 1);
+Answer:-NaN
+Explaination:-undefined cannot convert to number
+
+console.log([] + []);
+Answer:-""
+Explaination:-empty arrays → empty string
+
+console.log([] + {});
+Answer:-"[object Object]"
+
+console.log({} + []);
+Answer:-0
+Explaination:-{} treated as block → +[] = 0
+
+console.log([] == false);
+Answer:-true
+Explaination:-[] → "" → 0, false → 0
+
+console.log("" == 0);
+Answer:-true
+
+console.log("" === 0);
+Answer:-false
+Explaination:-strict equality (no coercion)
+
+console.log(null === undefined);
+Answer:-false
+
+console.log(" \t\n" == 0);
+Answe:-true 
+Explaination:-whitespace → 0

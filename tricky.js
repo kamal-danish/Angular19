@@ -10,7 +10,7 @@
 // console.log(false == []) true
 // console.log(false === []) false
 // console.log('5' - 3) 2
-// console.log('5' + 3) "53"
+// console.log('5' + 3) "53" + with string → concatenation
 // console.log(typeof null) "object"
 // console.log(typeof NaN) "number"
 // console.log(NaN == NaN) false

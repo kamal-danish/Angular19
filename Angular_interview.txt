@@ -574,22 +574,34 @@ export class Custome{
 }
 <p appHighlight>Click</p>
 
+--------------------------------------------------------------------------------------------------------------------------------
+
 Question:What happens if you don’t call next.handle()?
 Answer:-Request will never reach API
+
+--------------------------------------------------------------------------------------------------------------------------------
 
 Question:Explain interceptor params
 Answer:-intercept method takes HttpRequest and HttpHandler. HttpRequest contains request details and is immutable, 
 so we clone it to modify. HttpHandler is used to forward the request to the next interceptor or backend.
 
+--------------------------------------------------------------------------------------------------------------------------------
+
 Question:-What is an Interceptor in Angular
 Answer:-Interceptor is used to modify or handle HTTP requests and responses globally.
+
+--------------------------------------------------------------------------------------------------------------------------------
 
 Question:-next.handle() is Mandatory
 Answer:-without next,handle request will not go to API
 
+--------------------------------------------------------------------------------------------------------------------------------
+
 Question:-ngClass and ngStyle
 Answer:-
 ngStyle is inline style ngClass is used add/remove CSS classes dynamically
+
+--------------------------------------------------------------------------------------------------------------------------------
 
 Question:-How to add remove class dynamically
 Answer:-
@@ -601,13 +613,29 @@ removeClass() {
   this.renderer.removeClass(this.el.nativeElement, 'active');
 }
 
+--------------------------------------------------------------------------------------------------------------------------------
 
 Question:-Describe the process for creating an Angular library and the benefit of using a CanLoad guard for lazy loading.
 Answer:-Angular libraries are used to create reusable, modular code that can be shared across multiple applications. 
 They are built using Angular CLI and can be published as npm packages
 ng generate library my-lib
 ng build my-lib
+--------------------------------------------------------------------------------------------------------------------------------
+CanActivate: Checks AFTER the module is downloaded. The user's browser already has the
+code -- they just can't navigate to the route. This is a UI guard, not a security guard.
+2. CanLoad: Checks BEFORE the module is downloaded. If unauthorized, the code never reaches
+the browser. This is real security -- the module bundle isn't even fetched.
+3. One-liner: 'CanActivate protects navigation. CanLoad protects the code itself.'
 
-CanLoad is a route guard used to prevent loading of lazy-loaded modules.
-Prevents unnecessary bundle loading.
-Improves performance
+-----------------------------------------------------------------------------------------------------------------------------------
+Question:-loadComponent
+Answer:-loadComponent is route based dynamic import for standalone component in router
+
+------------------------------------------------------------------------------------------------------------------------------
+Question:-@defer
+Answer:-Angular17+ used for lazy load template
+
+--------------------------------------------------------------------------------------------------------------------------------
+Question:-Update Project Angular Version
+Answer:-ng update @angular/core@latest @angular/cli@latest
+npm install -g @angular/cli@latest

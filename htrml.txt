@@ -19,7 +19,11 @@ Answer:-Flexbox is one dimensional,Work on row, good for alignment
 Grid work for row and column,Two dimensional,good for layout
 
 Question:-What is position property
-Answer:-Relative,Fixed,Sticky,Absolute,static
+Answer:-static (default) top and left not work element line by line, 
+relative (offset from itself),  Moves relative to its original position,Space is still reserved
+absolute (relative to parent), 
+fixed (viewport-based),fix on screen not move 
+and sticky (scroll-based hybrid). on header scroll stick on top 
 
 Question:-Difference between margin and padding
 Answer:-Margin taking Outside space
@@ -107,8 +111,115 @@ tr:nth-child(even) {
 
 
 
+
 Event loop continuously check call stack and task queue when call stack become empty it pushed queued task to the stack for excute
 1-Microtask --Promise
 2-macrotask ---setTimeout
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-What is doctype?
+Answer:-DOCTYPE stands for Document Type Declaration.
+tells the browser to render in standards mode.
+It tells the browser which version of HTML the page is written in, so the browser knows how to render it correctly.
+without doctype browser goes into Quirks Mode (old Behaviour)
+in HTML 5
+<!DOCTYPE html>
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Which tag is responsible for page responsiveness?
+Answer:-The main tag is the viewport meta tag
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+width=device-width → match screen width (mobile, tablet, desktop)
+initial-scale=1.0 → no zoom by default
+Without it,mobile browsers render at desktop width.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-HTML5 elements list and features
+Answer:-Semantic Elements
+<header> → top section
+<nav> → navigation links
+<section> → page section
+<article> → independent content
+<aside> → sidebar
+<footer> → bottom section
+<main> → main content
+
+Multimedia Elements
+<audio> → play audio
+<video> → play video
+<source> → media source
+<track> → subtitles
+<canvas> → graphics drawing
+<svg> → vector graphics
+
+Form Elements
+<details> → expandable content
+<summary> → title of details
+<mark> → highlight text
+<progress> → progress bar
+<meter> → measurement value
+<time> → date/time
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-Align two 50% width children in one line without flexbox & grid
+Answer:-<div class="parent">
+<div class="child"></div>
+<div class="child"></div>
+</div>
+Method 1->float
+.parent {
+  width: 100%;
+}
+
+.child {
+  width: 50%;
+  float: left;
+}
+Method 2=> inline-block
+.parent {
+ font-size:0
+}
+//inline-block adds whitespace between elements use font-size:0
+.child {
+  width: 50%;
+ display: inline-block;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Pseudo-class & element
+Answer:-It defines a special state of an element
+button:hover {
+  background: red;
+}
+
+input:focus {
+  border: 2px solid blue;
+}
+
+li:first-child {
+  color: green;
+}
+
+It styles a specific part of an element
+
+p::first-letter {
+  font-size: 30px;
+}
+
+p::first-line {
+  color: red;
+}
+
+div::before {//content before element
+  content: "👉 ";
+}
+
+div::after { ///content after element
+  content: " ✅";
+}
+
+Pseudo-classes target element states like hover or focus, while pseudo-elements style specific parts like first letter or before/after content.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 

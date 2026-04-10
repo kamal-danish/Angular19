@@ -1,15 +1,18 @@
 Event loop:=-The event loop allows JavaScript to handle asynchronous operations by executing queued tasks after 
 the call stack is empty
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-Callback vs Promise
 =>Callback passed as function
 =>Promise return object
 =>Callback Can use nesting
 =>Promise avoide nesting
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Question:- Why do we use callback functions?
 Answer=>To handle asynchronous operations,To make code reusable.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:What is Promise
 Answer:-Promise is object,who handle asynchronous operation.It has three states 
@@ -32,12 +35,14 @@ console.log(result)
 }).catch((error)=>{
 console.log(error)
 })
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-What is async/await.
 Answer:-async / await is a JavaScript feature used to handle asynchronous code in a synchronous-looking way.
 Used before function
 return Promise
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Question:-What is Promise chaining?
@@ -58,6 +63,7 @@ new Promise((resolve) => {
   console.log(finalResult);
 });
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Observable:-they are data stream that emit value over time.
 produce value.basically data producer
@@ -129,6 +135,7 @@ const shallowCopy = [...original];
 shallowCopy[0][0] = 100;
 
 console.log(original); 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Question:-Deep Copy
@@ -159,6 +166,7 @@ deepCopy.address.city = "Mumbai";
 console.log(original.address.city); // "Delhi"
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Call()=>we can borrow function some other object and use it with data some other object
@@ -179,10 +187,12 @@ printfullname.call(name2,[Mumbai]) passing in array arrgument ----apply()  run i
 bind()-return a function and passing seprate arrgument  -set the value of this permanently for a function.
 
 don’t invoke methode immediately copy function and immediately later.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 polyfils=>browser patch
 when browser not support new feature of javascript then polyfils patch them
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -192,12 +202,47 @@ template literals
 let name = "Danish";
 let msg = `Hello ${name}`;
 console.log(msg);
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:What is the output of console.log(obj[1]) after assigning both obj[1] = "one"; and obj["1"] = "string one";?
 Answer:-const obj = {}; // Create an empty object
 obj[1] = 'one'; // Assign 'one' to key '1' (number is converted to string)
 obj["1"] = 'string one'; // Overwrite key '1' with 'string one'
 console.log(obj[1]); //
+In objects, keys are always strings
+so obj[1] => obj['1']
+obj['1'] => obj['1']
+Both refer same key So second assignment overwrites the first.
+
+Counter Question:-how does this behaviour differ from a map?
+Answer:- 
+const map = new Map();
+
+map.set(1, 'one');
+map.set("1", 'string one');
+
+console.log(map.get(1)); //'one'
+console.log(map.get("1")); // 'string one'
+In map different key No coercion -> strict Identity 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-const obj = {};
+obj[{}] = "A";
+obj[{}] = "B";
+
+console.log(obj);
+Answer:-{ "[object Object]": "B" }
+Explaination:-Because both objects become same string key "[object Object]"
+But with map
+
+const map = new Map();
+map.set({}, "A");
+map.set({}, "B");
+
+console.log(map.size);
+2 //Different object references → different keys
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-What are the outputs when calling f1(), f2(), and f1() after 
 initializing var f1 = new fn1(); var f2 = new fn1(); in a factory pattern that generates unique IDs starting from 10?
@@ -215,33 +260,51 @@ console.log(f1()); // 11, f1's x goes from 10 to 11
 console.log(f2()); // 11, f2's x goes from 10 to 11 (separate from f1)
 console.log(f1()); // 12, f1's x goes from 11 to 12
 
+
+Question:-what must you do to ensure x is garbage collected when the component is destroyed
+Answer:-Remove all references of closure function.
+Set reference to null
+f1=null;f1=null
+in angular ngOnDestroy() {
+  this.f1 = null;
+  this.f2 = null;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Question:-for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 0);
 }
 Answer:-3 3 3
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-for (let i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 0);
 }
 Answer:-0 1 2
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-const obj = {};
 obj[1] = "one";
 obj["1"] = "two";
 Answer:-'two'
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(typeof null);
 Answer:-'object'
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(NaN === NaN);
 Answer:-false
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log({} + []);
 Answer:-0
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log("5" - 3);
 console.log("5" + 3);
 Answer:-2,'53'
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-function fn() {
   let x = 0;
@@ -252,6 +315,7 @@ const a = fn();
 console.log(a(), a());
 Answer:-1,2
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-const obj = {
   val: 10,
@@ -262,6 +326,7 @@ Question:-const obj = {
 
 obj.fn()();
 Answer:-10
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-const obj = {
   val: 10,
@@ -275,12 +340,14 @@ Question:-const obj = {
 obj.fn();
 
 Answer:-undefined (or window.val)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(a);
 var a = 5;
 
 Answer:-undefined
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-foo();
 
@@ -295,6 +362,7 @@ function foo() {
 Answer:-B
 Explaination:=The last one overrides the previous ones
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log("start");
 
@@ -308,6 +376,7 @@ Answer:-start
 end
 promise
 timeout
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-function fn() {
   let x = 10;
@@ -323,6 +392,7 @@ Answer:-11 11 12
 Explaination:-Each time you call fn(), a new execution context is created with its own x
 f1 → has its own x
 f2 → has a separate x
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-const obj = { a: 1 };
 const { a } = obj;
@@ -332,6 +402,14 @@ obj.a = 2;
 console.log(a);
 
 Answer:-1
+Explaination:-this is concept of Destructuring in Destructuring copy value not reference.
+so here 
+step 1=> making obj = { a: 1 } 
+step 2=> a is new variable not link with obj so here a=1
+step 3=>obj.a = 2; now obj={a:2}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-let arr = [1, 2];
 let ref = arr;
@@ -341,11 +419,13 @@ ref.push(3);
 console.log(arr);
 
 Answer:-[1,2,3]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-for (var i = 0; i < 3; i++) {
   ((i) => setTimeout(() => console.log(i), 0))(i);
 }
 Answer:-0 1 2
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(0 == false);
 console.log("" == false);
@@ -354,3 +434,29 @@ console.log([] == false);
 Answer:-true
 true
 true
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-
+const obj = { a: { x: 1 } };
+const { a } = obj;
+
+obj.a.x = 2;
+
+console.log(a.x);
+
+Answer:-2
+Explaination:-Here a is an object reference
+Both point to same memory
+
+const obj = { a: 1 };
+primitive=>copy
+object =>reference copy
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-typeof null === 'object'
+Answer:-JS bug
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+null == undefined is true, 
+null === undefined is false.
