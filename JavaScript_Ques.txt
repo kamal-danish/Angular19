@@ -460,3 +460,32 @@ Answer:-JS bug
 
 null == undefined is true, 
 null === undefined is false.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-let x = [1, 2, 3];
+let y = [1, 2, 3];
+let z = y;
+
+console.log(x == y); 
+console.log(x === y); 
+console.log(z == y); 
+console.log(z == x);
+
+Answer:-false
+false
+true
+false
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-const obj = {
+  name: "JS",
+  getName: function () {
+    return this.name;
+  }
+};
+
+const fn = obj.getName;
+console.log(fn());
+
+Answer:-Undefined
+Explaination:-this is lost when function detached
+fix:-fn.bind(obj)()

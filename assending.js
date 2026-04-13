@@ -1,4 +1,4 @@
-let array=[5,2,9,1]
+let array=[5, 2, 9, 1, 3];
 function x(){
 for (let i = 0; i < array.length; i++) {
 for (let j = i+1; j < array.length; j++) {

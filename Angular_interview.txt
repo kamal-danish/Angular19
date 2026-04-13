@@ -639,3 +639,8 @@ Answer:-Angular17+ used for lazy load template
 Question:-Update Project Angular Version
 Answer:-ng update @angular/core@latest @angular/cli@latest
 npm install -g @angular/cli@latest
+
+-------------------------------------------------------------------------------------------------------------------------------
+Question:-If any one API fails, the entire forkJoin fails
+Answer:-Use catchError for each observable individually. and return a fallback value
+
