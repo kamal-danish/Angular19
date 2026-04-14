@@ -719,4 +719,28 @@ Question:-What is Signals
 Answer:-Signal are reactive variable it hold a value.notify angular to update ui when value change.
 Interview one liner:-Signals are reactive primitive that enable fine-grained reactivity by tracking dependecies and updating
 only the affected part of ui without relying on zone.js.
+-------------------------------------------------------------------------------------------------------------------------------
 
+Question:-Change Detection
+Answer:-Angular change detection updates the DOM when data changes, using Zone.js by default
+-------------------------------------------------------------------------------------------------------------------------------
+
+Question:-change Detection OnPush
+Answer:-When input reference change
+markforCheck work when onPush manual trigger not update instant make scheduler for next change detection
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Question:-to stop Auto update for static component
+Answer:-this.cdr.detach();
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+Question:-this.cdr.detectChanges();
+Answer:-manual update UI
+-------------------------------------------------------------------------------------------------------------------------------
+
+Question:-this.cdr.detach();
+this.value = 100;
+
+Answer:-Without detectChanges not updated.
