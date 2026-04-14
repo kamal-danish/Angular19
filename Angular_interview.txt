@@ -12,23 +12,26 @@ switchMap(value=>this.api.getUser(value))
 ).subscribe(result=>{
     this.user=result;
 })
-
+--------------------------------------------------------------------------------------------------------------------------------------
 mergeMap:-Run all apis in Parallel.like i have list of order and i want this all details by id then use merge map:
 Load multiple data at once
 forms([1,2,3]).pipe(
     mergeMap(id=>this.userService.getuser(id)).subscribe(res=>this.user.push(res))
 )
+--------------------------------------------------------------------------------------------------------------------------------------
 
 concateMap:-Save data in order -in queue
 form([1,2,3]).pipe(
     concateMap(id=>this.service.getuser(id)).subscribe(res=>this.user.push(res))
 )
+--------------------------------------------------------------------------------------------------------------------------------------
 
 exhaustMap:-Ignore New API Until Current Completes
 
 fromEvent(this.loginBtn.nativeElement, 'click').pipe(
     exhaustMap(() => this.userService.getUser(1))
   ).subscribe(res => console.log(res));
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 forkJoin:-Waits for all APIs to finish.Then gives single combined result
@@ -47,6 +50,7 @@ forkJoin({
 
   });
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 Promise vs Observable:
@@ -68,6 +72,7 @@ fetch('/api/user')
   operator:-map switchMap,debounce,retry
 
   this.http.getUser().subscribe(res=>res.data) //Runs only on subscribe. Can cancel.
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Why Angular Prefers Observables:-
   Promise is good for single async operations, but Angular prefers Observables because they support streams, 
@@ -77,6 +82,7 @@ Why Angular Prefers Observables:-
   3=>Powefull Operator-switchmap
   4=>Prevent Memory Leakage.
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 APP_INITIALIZER function must return:
@@ -86,6 +92,7 @@ OR
 ✅ Observable
 
 runs config file before app start check auth environment must run promise and observable.
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Webpack:-
 Webpack is a module bundler used to bundle JavaScript, CSS, images, and other assets into optimized files for web apps.Angular 2+
@@ -93,6 +100,7 @@ Webpack is a module bundler used to bundle JavaScript, CSS, images, and other as
 esbuild:-bundler/transpiler --very fast Angular 17+
 vite:-dev server+bundler ---HMR
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 angular.json is the main configuration file of an Angular workspace.
@@ -139,15 +147,18 @@ Lazy loading handling
 
 Dependency resolution at runtime
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Analyze Bundle Size
 ng build --stats-json
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 ng-container ----grouping html don't need extra tag not show in dom.
 ng-template:-show in dom when condition true.
 ng-content-show parent data in child if parent has used child selector./
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Control Flow:-@if,@for,@switch,@defer
 
@@ -156,15 +167,19 @@ Control Flow:-@if,@for,@switch,@defer
 Hard to read
 
 Extra <ng-template>
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-If I want to add data to an array without mutating the original array
 Answer:-spread operator,concat,slice
 this.item = this.item.concat(4);
 this.item = [...this.item,4]
 this.items = [...this.items.slice(), newItem];
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-Remove item without mutating array
 this.items = this.items.filter(item => item.id !== id);
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Question:-Update item in array (Immutable way)
 users = [
  {id:1,name:'A'},
@@ -180,10 +195,16 @@ Here:
 map() creates new array
 
 Spread creates new object
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Question:- ViewEncapsulation
 Answer:-View Encapsulation in Angular is a feature that isolates component styles to prevent
 them from affecting other components, and it supports Emulated, ShadowDom, and None modes.
 
+1.Emulated:- By default use global css.style scoped  
+2.ShadowDom:-Component style isolate .does not affect gobal css
+3.None:- make component style global
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Angular LifeCycle:-
 ngOnChanges:-When parent and child relation and Parent send data to child
@@ -195,32 +216,51 @@ ngAfterViewInit:-When Component View And child component Load
 ngAfterViewChecked:- When Component View Checked
 ngOnDestroy:- When You goto other Component route change
 
-1.Emulated:- By default use global css.style scoped  
-2.ShadowDom:-Component style isolate .does not affect gobal css
-3.None:- make component style global
+--------------------------------------------------------------------------------------------------------------------------------------
+
 
 Question:-trackBy
 Answer:-trackBy is a function used with ngFor to help Angular identify list items uniquely. 
 By default, Angular tracks by object reference, which can cause full DOM re-render when array reference changes. Using trackBy with a unique identifier 
 like ID ensures only changed items are updated, improving performance significantly in large lists.
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Question:-Tree Shaking
 Answer:-Tree shaking is a technique used by modern JavaScript bundlers 
 to remove unused (dead) code from the final production bundle.
+
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:Pipe
 Answer:-A pipe transforms data in the template.
 Angular has:
 
 Built-in pipes
+--------------------------------------------------------------------------------------------------------------------------------------
 
-Custom pipes
+Question:Custome Pipe
+Answer:-@Pipe({
+  name:'capitalize'
+})
+export class Capital implements PipeTransform{
+
+  transform(value:string):string{
+if(!value) return '';
+return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+}
+<p>{{'danish' | capitalize }}</p>
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-Pure Pipe
 Answer:-A pipe runs when input reference change
+--------------------------------------------------------------------------------------------------------------------------------------
+
 Question:Impure Pipe
 Answer:-On Every change like event trigger,every async update
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Subject:-Does not initial value .It does NOT store previous values.Subscribers receive only values emitted after they subscribe
 
@@ -252,6 +292,7 @@ subject.next(2);
 subject.next(3);
 
 subject.complete();
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 takeUntill():-An Angular with RxJS, takeUntil is an operator used to automatically unsubscribe from an Observable 
@@ -262,6 +303,7 @@ It’s commonly used to prevent memory leaks in components.
 private subject=new Subject<void>
 this.userservice.getUser().pipe(takeUntil(this.subject)).subscribe(res=>res.json())
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 How do you handle error handling in RxJS streams? (catchError, retry, retryWhe  n)
 
@@ -286,6 +328,7 @@ data$.subscribe();
 data$.subscribe();
 
 Only 1 HTTP call happens
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -304,14 +347,17 @@ Compilation happen in build time
 template get compiled at build time
 
 when user open app everything compiled browser directly run js.
+--------------------------------------------------------------------------------------------------------------------------------------
 
 css-standard styling language .no need compilation browser understand directly
 scss -browser compile we can define variable, nested style
 sass-no need semicolon,curly braces. 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 AppModule -> RouterModule.forRoot()  => sets main router
 
 FeatureModule -> RouterModule.forChild() => adds child routes
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 take(1) emits the first value from an observable and then completes the subscription automatically.
@@ -320,6 +366,7 @@ of(1,2,3,4).pipe(
   take(1)
 ).subscribe(x => console.log(x)); //1
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 from(this.arr)
@@ -333,6 +380,7 @@ pipe() → apply RxJS operators
 distinctUntilChanged() → remove consecutive duplicates
 
 const arr = [1,1,2,2,3];
+--------------------------------------------------------------------------------------------------------------------------------------
 
 RxJS operators like distinctUntilChanged work only on Observables, 
 so we must convert arrays using from() or of() before using them.
@@ -356,12 +404,14 @@ from(arr)
   )
   .subscribe(console.log); //{id:1}
 {id:2}
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 from([1,2,1,3,2]).pipe(
   distinct()
 ).subscribe(console.log);
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Dependency Injection hierarchy:-Root,Module,Component
 
@@ -369,12 +419,14 @@ Change Detection:-Default → checks entire component tree.
 OnPush:-When input reference change and you can do manually like this.cdr.markForCheck
 Used for performance optimization.
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Lazy Load:-Fast initial load small bundle size.break in chunks
 {
   path:'',
   loadChildren():=>import('').then(m=>m.DashboardModule)
 }
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 Angular Performance Optimization:
@@ -386,11 +438,13 @@ Use Signal,
 Lazy Loading
 Pure Pipe,
 Virtual Scroling
+--------------------------------------------------------------------------------------------------------------------------------------
 
 What are interceptors used for?
 For auth logging
 Error handling
 Api transformation
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 Guards:
@@ -398,46 +452,56 @@ CanActivate
 canLoad
 CanDeactivate
 Resolve
+--------------------------------------------------------------------------------------------------------------------------------------
 
 How do you manage state in Angular applications?
 Services + BehaviorSubject
 NGRX
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Remove duplicates from array
 const arr=[1,1,2,3,3,4];
 const unique=[...new Set(arr)];
 console.log(unique);
+--------------------------------------------------------------------------------------------------------------------------------------
 
 How do you handle memory leaks?
 async pipe
 takeUntil
 unsubscribe in ngOnDestroy
+--------------------------------------------------------------------------------------------------------------------------------------
 
 const arr=[1,2,[3,4],[5,[6]]];
 const result=arr.flat(Infinity);
 console.log(result);
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Debounce API call:-
 this.form.get('name').valueChanges.pipe(debounceTime(200),distinctUntilChanged(),switchMap(val=>this.api.search(value))).subscribe();
+--------------------------------------------------------------------------------------------------------------------------------------
 
 destroy=new Subject<void>()
 this.form.get('input').valueChanges.pipe(debounceTime(200),distinctUntilChanged(),tap(()=>this.loading=true).
 switchMap(val=>this.api.search(val).pipe(catchError(()=>of([])))),
 takeUntil(this.destroy)
 ).subscribe(res=>this.result=res;this.loading=false)
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Large list (10k records) performance issue
 Angular CDK Virtual Scroling
 Lazy Load pagination
+--------------------------------------------------------------------------------------------------------------------------------------
 
 What is ESLint?:-
 Code Analyzer For TypeScript and JavaScript
+--------------------------------------------------------------------------------------------------------------------------------------
 
 What is Generics?
 Generics allow reusable components with type safety.
 function identity<T>(value:T):T{
  return value
 }
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Accumulator generally means a variable that stores the running result while looping or processing data
 let numbers = [1, 2, 3, 4];
@@ -448,6 +512,7 @@ let result = numbers.reduce((accumulator, currentValue) => {
 
 console.log(result);
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 What happens if you subscribe inside subscribe?
 this.api.getUser().subscribe(user => {
@@ -463,10 +528,12 @@ Hard to manage errors
 
 Better Solution – use switchMap
 this.api.getUser().pipe(switchMap(user=>this.api.getUserLIst(user.id))).subscribe(order=>console.log(order))
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Interface:-An interface defines the structure of an object.
 type can define objects, unions, primitives, functions,
 enum is used to define a set of named constants.
+--------------------------------------------------------------------------------------------------------------------------------------
 
 @ViewChild is used when you want to get a single element or component from the view.
 @ViewChild('nameInput') input!: ElementRef;
@@ -483,6 +550,7 @@ enum is used to define a set of named constants.
       console.log(el.nativeElement.textContent);
     });
   }
+--------------------------------------------------------------------------------------------------------------------------------------
 
   @ContentChild
   <app-card>
@@ -503,16 +571,20 @@ enum is used to define a set of named constants.
   <p #item>Item 2</p>
   <p #item>Item 3</p>
 </app-card>
+--------------------------------------------------------------------------------------------------------------------------------------
 
 custome Directive:-
 this.el.nativeElement.style.color = 'red';
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Renderer2:-Renderer2 is a service used to safely manipulate the DOM
 such as styles, attributes, classes, and events without directly accessing the native DOM.
 this.renderer.setStyle(this.el.nativeElement, 'color', 'blue');
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 @HostListener in Angular is a decorator used to listen to DOM events on the host element
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 Question:-take(1)
@@ -523,6 +595,7 @@ source$.pipe(
   next: val => console.log('take(1):', val),
   complete: () => console.log('take(1) completed')
 });
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-first()
 Answer:-same as take(1).mostly used for condition throw error if no value
@@ -532,10 +605,12 @@ source$.pipe(
   next: val => console.log('first > 2:', val)
 });
 
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-Smart & Dumb Component
 Answer:-Smart components handle business logic and API calls,State while dumb components are 
 purely presentational and receive data via inputs and emit events via outputs,Display Data.
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Question:What are the main components of NgRx?
 Answer:Store:-Hold state
@@ -546,18 +621,8 @@ Effect:-Api call handle
 
 Component dispatches an action → Effect calls API → Reducer updates store → Component gets data via selector.
 
-Question:Custome Pipe
-Answer:-@Pipe({
-  name:'capitalize'
-})
-export class Capital implements PipeTransform{
+--------------------------------------------------------------------------------------------------------------------------------------
 
-  transform(value:string):string{
-if(!value) return '';
-return value.charAt(0).toUpperCase() + value.slice(1);
-  }
-}
-<p>{{'danish' | capitalize }}</p>
 
 
 Question:-Custome Directive
@@ -643,4 +708,15 @@ npm install -g @angular/cli@latest
 -------------------------------------------------------------------------------------------------------------------------------
 Question:-If any one API fails, the entire forkJoin fails
 Answer:-Use catchError for each observable individually. and return a fallback value
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What zone.js does?
+Answer:-Its notify angular to update UI HTML.
+-------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What is Signals
+Answer:-Signal are reactive variable it hold a value.notify angular to update ui when value change.
+Interview one liner:-Signals are reactive primitive that enable fine-grained reactivity by tracking dependecies and updating
+only the affected part of ui without relying on zone.js.
 

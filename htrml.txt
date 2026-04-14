@@ -107,7 +107,7 @@ button[aria-expanded="true"] {
 --------------------------------------------------------------------------------------------------
 
 Question:-change color of div from ts file
-Answer:-  c@ViewChild('box') box!: ElementRef;
+Answer:-  @ViewChild('box') box!: ElementRef;
 changeColor() {
     this.renderer.setStyle(this.box.nativeElement, 'background-color', 'blue');
   }

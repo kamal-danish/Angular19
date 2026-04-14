@@ -164,6 +164,15 @@ const deepCopy = JSON.parse(JSON.stringify(original));
 deepCopy.address.city = "Mumbai";
 
 console.log(original.address.city); // "Delhi"
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:Spread vs rest operator
+Answer:-Spread operator copy merge array/object create new object.
+rest operator collect multiple value and convert in to singal array
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-Destructuring
+Answer:-Extract value form array of object and assign them to variables.
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
