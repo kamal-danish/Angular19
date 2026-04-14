@@ -7,19 +7,11 @@
 //     if(str[i] === str[j]) count++;
 //   }
 
-<<<<<<< HEAD
-//   if(count === 1){
-//     console.log(str[i]);
-//     break;
-//   }
-// }
-=======
-  if(count === 1){
-    console.log(str[i]);
+  // if(count === 1){
+  //   console.log(str[i]);
    
-  }
-}
->>>>>>> 2afd6ef99db6cb07e94cc426a2187cbe2b147246
+  // }
+// }
 
 
 

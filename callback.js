@@ -8,6 +8,15 @@
 
 // Another function calls it for you
 
+function A(name,callback){
+    console.log('hello' + name)
+    callback();
+    function B(){
+        console.log('Bye')
+    }
+}
+A('Danish',B)
+
 function greet(name) {
   console.log("Hello " + name);
 }

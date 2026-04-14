@@ -48,5 +48,5 @@ console.log(duplicates);
 
 // console.log(result);
 
-// let duplicate=array.filter((item,i)=>array.indexOf(item)!==i )
-// console.log(duplicate)
+duplicate=array.filter((item,i)=>array.indexOf(item)!==i )
+console.log(duplicate)
