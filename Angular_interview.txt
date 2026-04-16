@@ -734,7 +734,6 @@ markforCheck work when onPush manual trigger not update instant make scheduler f
 Question:-to stop Auto update for static component
 Answer:-this.cdr.detach();
 
-
 -------------------------------------------------------------------------------------------------------------------------------
 Question:-this.cdr.detectChanges();
 Answer:-manual update UI
@@ -744,3 +743,29 @@ Question:-this.cdr.detach();
 this.value = 100;
 
 Answer:-Without detectChanges not updated.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Question:-Make zoneless 
+Answer:-provideZoneChangeDetection({
+  runCoalescing: true,
+  eventCoalescing: true
+});
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Question:-Angular 20
+Answer:-Angular 20 introduces stable signals, zoneless change detection, incremental hydration, and modern control flow syntax, 
+making Angular faster, more reactive, and simpler
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Question:toSignals
+Answer:-users = toSignal(this.userService.getUsers(), {
+  initialValue: []
+});
+
+----------------------------------------------------------------------------------------------------------------------
+Question:-RxJs Vs Signal
+Answer:-RxJS is used for handling asynchronous data streams and complex event flows, 
+whereas Signals are used for managing reactive state in a simpler and more efficient way. Signals complement RxJS but do not replace it.
