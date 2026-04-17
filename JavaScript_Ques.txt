@@ -1,6 +1,34 @@
+Closure is function along with lexical scope.
+Closures capture variables by reference, not by value, and each function instance maintains its own lexical environment.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Hoisting
+Answer:-Javascript move declaration to the top of the scope but only declaration not initializations
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Question:-Temporal Dead Zone
+Answer:-Time between variable hoisted and initializations.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What is this in JavaScript?
+Answer:-this is a reference to the object that is executing the current function.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-What is Scope in JavaScript?
+Answer:-Scope define where variable are accesible in your code.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Event loop:=-The event loop allows JavaScript to handle asynchronous operations by executing queued tasks after 
 the call stack is empty
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Event loop continuously check call stack and task queue when call stack become empty it pushed 
+queued task to the stack for excute
+1-Microtask --Promise
+2-macrotask ---setTimeout
+--------------------------------------------------------------------------------------------------
 
 Question:-Callback vs Promise
 =>Callback passed as function
@@ -349,6 +377,7 @@ Question:-const obj = {
 obj.fn();
 
 Answer:-undefined (or window.val)
+because inner function not bound to obj
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(a);

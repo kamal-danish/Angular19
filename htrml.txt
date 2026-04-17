@@ -1,3 +1,11 @@
+Question:-HTML and HTML 5
+Answer:-Hyper Text Markup language
+HTML is old version 
+HTML 5 is new Version support Browser and better for responsive web page 
+HTML 5 have meaningfull tag like <header><footer><article><main><nav>
+HTML 5 support video audio and it does not required any pluging.
+bettre for SEO.
+--------------------------------------------------------------------------------------------------
 Question:-What is the difference between id and class?
 Answer:-Id is unique for element
 class:-can be used multiple
@@ -130,14 +138,7 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
---------------------------------------------------------------------------------------------------
 
-
-
-Event loop continuously check call stack and task queue when call stack become empty it pushed 
-queued task to the stack for excute
-1-Microtask --Promise
-2-macrotask ---setTimeout
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 Question:-What is doctype?
@@ -241,7 +242,16 @@ div::after { ///content after element
 Pseudo-classes target element states like hover or focus, while pseudo-elements style specific parts like first letter or before/after content.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-
+Question:-show a box in top right
+Answer:-
+.container{
+  position:relative
+}
+.box{
+  position:absolute
+  top:0px
+  right0px;
+}
 
 
 
