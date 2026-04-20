@@ -242,7 +242,7 @@ div::after { ///content after element
 Pseudo-classes target element states like hover or focus, while pseudo-elements style specific parts like first letter or before/after content.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-Question:-show a box in top right
+Question:-show a box in top right corner in container
 Answer:-
 .container{
   position:relative
@@ -253,6 +253,15 @@ Answer:-
   right0px;
 }
 
+---------------------------------------------------------------------------------------------------------------
+question:-Async and defer
+Answer:-Async execute script as soon as they downloaded order does not matter.while defer execute after HTML parsing and 
+maintain execution order. 
+
+-------------------------------------------------------------------------------------------------------------------
+Question:-Css Specificity
+Answer:-Which Css rule is applied when multiple selector target same element.
+it is calculated based on inline styles, IDs, classes, and elements.
 
 
 
