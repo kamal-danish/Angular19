@@ -769,3 +769,18 @@ Answer:-users = toSignal(this.userService.getUsers(), {
 Question:-RxJs Vs Signal
 Answer:-RxJS is used for handling asynchronous data streams and complex event flows, 
 whereas Signals are used for managing reactive state in a simpler and more efficient way. Signals complement RxJS but do not replace it.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Emulated (Default)
+→ Styles are scoped to the component using attribute selectors
+→ Safe and most commonly used
+
+⚡ None
+→ Styles are global (no scoping)
+→ Useful for global theming but risky
+
+⚡ ShadowDom (Native)
+→ Uses browser’s native Shadow DOM
+→ True style isolation
+------------------------------------------------------------------------------------------------------------------------------------------
