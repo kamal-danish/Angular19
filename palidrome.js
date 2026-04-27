@@ -11,3 +11,4 @@
 
 const isPalidrome = str=>str.toLowerCase() === str.toLowerCase().split('').reverse().join('')
 console.log(isPalidrome("racecar")); 
+

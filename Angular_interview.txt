@@ -490,6 +490,8 @@ takeUntil(this.destroy)
 Large list (10k records) performance issue
 Angular CDK Virtual Scroling
 Lazy Load pagination
+Change Detection on Push with trackBy
+
 --------------------------------------------------------------------------------------------------------------------------------------
 
 What is ESLint?:-
@@ -628,14 +630,16 @@ Component dispatches an action → Effect calls API → Reducer updates store �
 Question:-Custome Directive
 Answer:
 @Directive({
-  name:'[appHighlight]'
+  selector:'[appHighlight]'
 })
 export class Custome{
   constructor(private renderer:Renderer2,private el:ElementRef){
 
   }
-  @HostListener('mouseenter')
-  this.renderer.setStyle(this.el.nativeElement,'backgroundColor','red')
+  @HostListener('mouseenter') onMouseEnter(){
+ this.renderer.setStyle(this.el.nativeElement,'backgroundColor','red')
+  }
+ 
 }
 <p appHighlight>Click</p>
 
@@ -784,3 +788,102 @@ Emulated (Default)
 → Uses browser’s native Shadow DOM
 → True style isolation
 ------------------------------------------------------------------------------------------------------------------------------------------
+Question:-HTTP Interceptor
+Answer:-
+@Injectable()
+export class ClassName implements HttpInterceptor{
+  intercept(req:HttpRequest<any>,next:HttpHandler){
+   return next.handle(req)
+  }
+}
+//app module
+{
+provide:[HTTP_INTERCEPTORS],
+class:ClassName,
+multi:true
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Question:-How to add Authorization token in interceptor?
+Answer:-
+@Injectable()
+export class ClassName implements HttpInterceptors{
+  intercept(req:HttpRequest<any>,next:HttpHandler){
+    const clone = req.clone({
+      setHeaders:{
+        Autorization:Bearer ${localStorage.getItem('token')}
+      }
+    });
+    return next.handle(clone)
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Question:How to handle errors in interceptor?
+Answer:
+@Injectable()
+export class ClassName implements HttpInterceptors{}
+intercept(req:HttpRequest<any>,next:HttpHandler){
+  return next.handle(req).pipe(
+    catchError((error:HttpErrorResponse)=>{
+return throwError(()=>error);
+    })
+  )
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Question:-How to skip interceptor for a specific API?
+Answer:-
+auth.service.ts
+
+export const SKIP_INTERCEPTOR = new HttpContextToken(()=>false)
+getUserList():Observable<any>{
+  return this.http.get<any>(`${environment.baseUrl} + /login`,{
+    context:new HttpContext().set(SKIP_INTERCEPTOR,true) 
+  })
+}
+
+@Injectable()
+export class ClassName HttpInterceptor{
+  intercept(req:HttpRequest<any>,next:HttpHanler){
+    if(req.context.get('SKIP_INTERCEPTOR')){
+      return next.handle(req)
+    }
+    return next.handle(req.clone({
+      setHeaders:{
+        Autorization:`Bearer ${localStorage.getItem(token)}`
+      }
+    }))
+  }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+ng new mono-workspace --createApplication="false"
+cd mono-workspace
+ng g application host-app --routing --style=scss
+ng g application mfe-app --routing --style=scss
+npm i webpack webpack-cli --save-dev
+ng add @angular-architects/module-federation --project host-app --port 4200
+ng add @angular-architects/module-federation --project mfe-app --port 4300
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Question:-convert xml to json
+Answer:- import {parseString} from 'xml2json'
+this.http.get('url',{responseType:'text'}).subscribe(res=>{
+  parseString(res,(err,result)=>{
+    console.log(result)
+  })
+})
+
+---------------------------------------------------------------------------------------------
+Question:YML to JSON
+Answer:-users:
+  - name: Danish
+    age: 30
+  - name: Rahul
+    age: 28
+    const data=yaml.load(res)
