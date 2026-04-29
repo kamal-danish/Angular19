@@ -789,10 +789,10 @@ Emulated (Default)
 → True style isolation
 ------------------------------------------------------------------------------------------------------------------------------------------
 Question:-HTTP Interceptor
-Answer:-
+Answer:- interceptor is interface.
 @Injectable()
 export class ClassName implements HttpInterceptor{
-  intercept(req:HttpRequest<any>,next:HttpHandler){
+  intercept(req:HttpRequest<any>,next:HttpHandler):Observable<HttpEvent<any>>{
    return next.handle(req)
   }
 }
@@ -808,7 +808,7 @@ Question:-How to add Authorization token in interceptor?
 Answer:-
 @Injectable()
 export class ClassName implements HttpInterceptors{
-  intercept(req:HttpRequest<any>,next:HttpHandler){
+  intercept(req:HttpRequest<any>,next:HttpHandler):Observable<HttpEvent<any>>{
     const clone = req.clone({
       setHeaders:{
         Autorization:Bearer ${localStorage.getItem('token')}
@@ -823,7 +823,7 @@ Question:How to handle errors in interceptor?
 Answer:
 @Injectable()
 export class ClassName implements HttpInterceptors{}
-intercept(req:HttpRequest<any>,next:HttpHandler){
+intercept(req:HttpRequest<any>,next:HttpHandler):Observable<HttpEvent<any>>{
   return next.handle(req).pipe(
     catchError((error:HttpErrorResponse)=>{
 return throwError(()=>error);
@@ -834,28 +834,74 @@ return throwError(()=>error);
 ------------------------------------------------------------------------------------------------------------------------------------------
 Question:-How to skip interceptor for a specific API?
 Answer:-
-auth.service.ts
+Methode 1=>Custome Header
 
-export const SKIP_INTERCEPTOR = new HttpContextToken(()=>false)
+auth.service.ts:-
 getUserList():Observable<any>{
-  return this.http.get<any>(`${environment.baseUrl} + /login`,{
-    context:new HttpContext().set(SKIP_INTERCEPTOR,true) 
+  return this.http.get<any>(`${environment.baseURL} + /login`,{
+    headers:new HttpHeaders({skip:'true'})
   })
 }
+Interceptor:-
 
 @Injectable()
-export class ClassName HttpInterceptor{
-  intercept(req:HttpRequest<any>,next:HttpHanler){
-    if(req.context.get('SKIP_INTERCEPTOR')){
-      return next.handle(req)
-    }
-    return next.handle(req.clone({
-      setHeaders:{
-        Autorization:`Bearer ${localStorage.getItem(token)}`
-      }
-    }))
+export class className implements HttpInterceptor{
+  intercept(req:HttpRequest<any> , next:HttpHandlers):Observable<HttpEvenet<any>>{
+if(req.url.includes('/login')){
+  const clone = req.clone({
+    headers:req.headers.delete('skip)
+  });
+  return next.handler(clone)
+}
+const clone1 = req.clone({
+  setHeaders:{
+    Autorization:`Bearer ${localStorage.getItem('token')}`
+  }
+})
+return next.handler(clone1)
   }
 }
+
+
+Methode 2=>URL Based condition
+
+@Injectable()
+export class className HttpInterceptor{
+intercept(req:HttpRequest<any>,next:HttpHandlers):Observable<HttpEvent><any>{
+  if(req.url.includes('/login')){
+    return next.handler(req)
+  }
+  const clone = req.clone({
+    setHeaders:{
+      Authoriztion:`Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  return next.handle(clone)
+}
+
+}
+
+Methode3:=> HTTP Context from Angular14+
+const SKIP_INTERCEPTOR = new HttpContextToken(()=>false)
+getUserList():Observable<any>{
+  return this.http.get<any>(`${environment.baseURL}+ /login`,{
+    headers:new HttpContext.set(SKIP_INTERCEPTOR,true)
+  })
+}
+@Injectable()
+export class classname implements HttpInterceptor
+intercept(req:HttpRequest<any> , next:HttpHandlers<any>):Observable<HttpEvent<any>>{
+  if(req.context.get('SKIP_INTERCEPTOR')){
+    return next.handle(req)
+  }
+  const clone = req.clone({
+    setHeaders:{
+      Authorization:`Bearer ${localStorage.getItem('token')}`
+    }
+  });
+  return next.handle(clone)
+}
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -887,3 +933,13 @@ Answer:-users:
   - name: Rahul
     age: 28
     const data=yaml.load(res)
+    -----------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-  How to Calculate “40% Build Time Reduction
+  Answer (old Time-new time)/old time*100
+
+  ----------------------------------------------------------------------------------------------------------------
+  Question:-Co-pilot mode
+  Answe:-Inline Suggetion mode
+ Edit mode-Rewrite your existing code
+  Chat mode-You can ask just like chatgpt
+  Agent Mode---generate guarad everything
