@@ -59,10 +59,7 @@ card--active  ----modifier ----change style or state
 --------------------------------------------------------------------------------------------------
 
 Question:-Shadow dom
-Answer:used to encapsulate HTML, CSS, and JavaScript of a 
-component so that its styles and structure do not affect the rest of the page.
-
-Shadow DOM creates a private DOM inside an element.
+Answer:Shadow Dom create seperate dom tree for component,prevent style,structure,conflicts with the main dom.
 --------------------------------------------------------------------------------------------------
 
 Question:What is the difference between <div> and <span>
@@ -252,6 +249,10 @@ Answer:-
   top:0px
   right0px;
 }
+
+<div class="container">
+  <div class="box">Top Right</div>
+</div>
 
 ---------------------------------------------------------------------------------------------------------------
 question:-Async and defer

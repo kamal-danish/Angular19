@@ -737,7 +737,7 @@ markforCheck work when onPush manual trigger not update instant make scheduler f
 
 Question:-to stop Auto update for static component
 Answer:-this.cdr.detach();
-
+to resume :-this.cdr.reattach(); /
 -------------------------------------------------------------------------------------------------------------------------------
 Question:-this.cdr.detectChanges();
 Answer:-manual update UI
@@ -943,3 +943,29 @@ Question:-  How to Calculate “40% Build Time Reduction
  Edit mode-Rewrite your existing code
   Chat mode-You can ask just like chatgpt
   Agent Mode---generate guarad everything
+
+  ------------------------------------------------------------------------------------------------------------------------
+  Question:-ViewContainerRef
+  Answer:-ViewContainerRef lets you add/remove components dynamically in UI
+  ------------------------------------------------------------------------------------------------------------------------
+  Question:vague requirement
+  Answer:-functionality in page
+  Real-time ya static?
+  Kaunsa data?
+  Kaun use karega?
+  Filters chahiye?
+
+  First, I clarify requirements by asking questions, discussing with stakeholders, 
+  and creating a clear understanding through documentation or prototypes before implementation.
+
+  Real approach (Senior level)
+Clarify karo
+Questions pucho
+Break karo
+Small tasks me divide
+Assumptions likho
+Stakeholder se confirm lo
+Prototype / wireframe dikhao
+-----------------------------------------------------------------------------------------------------------------------------
+Question:-Give me advice on what if client keeps changing requirements
+Answer:-
