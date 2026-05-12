@@ -969,3 +969,33 @@ Prototype / wireframe dikhao
 -----------------------------------------------------------------------------------------------------------------------------
 Question:-Give me advice on what if client keeps changing requirements
 Answer:-
+
+---------------------------------------------------------------------------------------------------------------------------
+Question:-InjectionToken
+Answer:-InjectionToken is used to inject non-class dependencies like strings, objects, configs, or interfaces in Angular Dependency Injection
+------------------------------------------------------------------------------------------------------------------------------
+Question:-Communication Between MFEs
+Answer:-Custome event
+(window.dispatchEvent and window.addEventListener)
+
+send
+window.dispatchEvent(
+  new CustomEvent('user-login', {
+    detail: { name: 'Danish' }
+  })
+);
+
+Receive:-
+
+window.addEventListener(
+ 'user-login',
+ (event:any)=>{
+   console.log(event.detail);
+ });
+
+
+ event bus
+ ---------------------------------------------------------------------------------------------------------------------------
+
+ docker build -t angular-app .
+ docker run -d -p 8080:80 angular-app

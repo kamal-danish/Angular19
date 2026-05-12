@@ -5,6 +5,22 @@ Question:-Hoisting
 Answer:-Javascript move declaration to the top of the scope but only declaration not initializations
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Call backend
+Answer:- when a function passed an argument to othet function and excute later inside that function is called call back function
+function A(name.callback){
+  conbsole.log(name)
+  callback()
+  function B()
+{
+console.log('Bye')
+}
+
+}
+A('Danish',B)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 Question:-Temporal Dead Zone
@@ -26,8 +42,11 @@ the call stack is empty
 
 Event loop continuously check call stack and task queue when call stack become empty it pushed 
 queued task to the stack for excute
-1-Microtask --Promise
-2-macrotask ---setTimeout
+1-Microtask --Promise---Highest priority task
+2-macrotask ---setTimeout-lowest priority task
+
+
+
 --------------------------------------------------------------------------------------------------
 
 Question:-Callback vs Promise

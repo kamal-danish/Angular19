@@ -259,10 +259,32 @@ question:-Async and defer
 Answer:-Async execute script as soon as they downloaded order does not matter.while defer execute after HTML parsing and 
 maintain execution order. 
 
+async and defer are used with <script> to load JavaScript without blocking HTML parsing
+
+neither async nor defer 
+defer is preffered  first load html than js execute.
+
 -------------------------------------------------------------------------------------------------------------------
 Question:-Css Specificity
 Answer:-Which Css rule is applied when multiple selector target same element.
 it is calculated based on inline styles, IDs, classes, and elements.
+
+-------------------------------------------------------------------------------------------------------------------------
+Question:-controls keyboard focus order
+Answer:-tabIndex:0
+
+
+--------------------------------------------------------------------------------------------------------------------------
+Question:-reponsive layout without media Query
+Answer:-minmax is css grid function that define minimum and maximum size range
+
+-----------------------------------------------------------------------------------------------------------------------
+Question:-REM and pixel
+Answer:-Pixel-fixed unit always exactly 20px
+if font-size:20px;
+
+REM-Relative root only HTML font-size depends on browser root size
+1rem=16px;
 
 
 
