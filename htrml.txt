@@ -288,3 +288,60 @@ REM-Relative root only HTML font-size depends on browser root size
 
 
 
+
+-----------------------------------------------------------------------------------------------------------------
+function changeOrder() {
+    
+      const container = document.getElementById("container");
+     const boxes = [...container.children];
+
+      // new order => 3,2,1,4
+      container.innerHTML = "";
+
+      container.appendChild(boxes[2]); // 3
+      container.appendChild(boxes[1]); // 2
+      container.appendChild(boxes[0]); // 1
+      container.appendChild(boxes[3]); // 4
+    }
+
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 200px;
+      margin: 40px auto;
+    }
+
+    .box {
+      padding: 20px;
+      text-align: center;
+      color: white;
+      /*font-size: 20px;*/
+      /*border-radius: 8px;*/
+    }
+
+    .box1 {
+      background: #ff6b6b;
+    }
+
+    .box2 {
+      background: #4ecdc4;
+    }
+
+    .box3 {
+      background: #1a535c;
+    }
+
+    .box4 {
+      background: #ffa600;
+    }
+
+     <div class="container" id="container">
+    <div class="box box1">1</div>
+    <div class="box box2" onclick="changeOrder()">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+  </div>
+
+
