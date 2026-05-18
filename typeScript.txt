@@ -1,0 +1,65 @@
+Question:-Is JavaScript single-threaded or multi-threaded and how does it handle asynchronous operations?
+Answer:-Yes,single-threaded it has one callstack and run one-piece of code at a time.Through event loop handling async operations.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Question:-What are closures and do you see any issues with closures?
+Answer:-Memory Leaks,Sharing State,garbage Collected,Loop Problem.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What are JavaScript promise utility functions
+Answer:-
+Promise.all():-Run Multiple Promise in parallel resolve when all resolve.Reject immediately if any rejects.
+Promise.allSettled:-Waits for all promises, whether success or failure.
+Promise.race():-Return result of first completed promise.(success/failure)
+promise.any():-Return first successful promise.
+Promise.resolve():-immediately resolve
+Promise.reject():-immediately reject.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What TypeScript features have you used in your projects?
+Answer-Static Type,Interface,Enum,Generics,Access Modifiers,Classes,decorator.
+
+Static Type:-where you define type of variables
+Interface:Structure of object
+Enum:-Named constants..
+Generic:-allow resuable component with typesafety.
+Access Modifies:-Private,Public,
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What are TypeScript utility types? Can you explain the Readonly type?
+Answer:-Partial & Required -----All Props are Optional
+Pick<T,K> --- keep selected keys
+Omit<T,K> -- Drop Selected key
+ReadOnly<T> --After creating the object, you cannot modify its properties.
+Record<K,V>, --key value map type
+Exclude<T,U>,--Remove form Union
+Extract<T,U>,--Filter Union
+Awaited,----Unwrap Promise type
+Parameters, Function Param Type
+Return Type--Function Return Type.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Can you write a TypeScript generic function getValue that takes an object and a key and returns the value if the key exists, else throws a compile-time error?
+Answer:-
+function getValue<T extend object,K extend keyof T>(obj:T,key:K):T[k]{
+    return obj[key]
+}
+T=>just placeholder
+const user={name:'Danish',age:'29'}
+T=>Becoome obj user and k is key of T so k is nanme|age
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const person = { 
+    name: 'John', 
+age: 'Doe', 
+greet: function () { 
+    console.log(Hello ${this.name} ${this.age}); 
+    } 
+    }; 
+    setTimeout(person.greet,2000);
+Answer:-here passes only function reference not calling function.
+in setTimeout you can write here bind()
+like setTimeout(person.greet.bind(person),2000)
+beacuse of setTimeout it excute later so we use bind not call 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

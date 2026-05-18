@@ -28,6 +28,13 @@ return obj;
 }
 console.log(other())
 
+
+let str = ['AA', 'BB', 'CCC', 'DD'];
+
+let output = str.map(item => item.length + item[0]);
+
+console.log(output);
+
 // const arr = ["apple", "banana", "apple", "orange", "banana", "apple"];
 // const count = {};
 

@@ -885,7 +885,7 @@ Methode3:=> HTTP Context from Angular14+
 const SKIP_INTERCEPTOR = new HttpContextToken(()=>false)
 getUserList():Observable<any>{
   return this.http.get<any>(`${environment.baseURL}+ /login`,{
-    headers:new HttpContext.set(SKIP_INTERCEPTOR,true)
+    context:new HttpContext.set(SKIP_INTERCEPTOR,true)
   })
 }
 @Injectable()
@@ -999,3 +999,12 @@ window.addEventListener(
 
  docker build -t angular-app .
  docker run -d -p 8080:80 angular-app
+
+ --------------------------------------------------------------------------------------------------------------------------
+ Question:-code quality tool
+ Answer:-ESlint,SonarLint,SonarCube,Prettier
+ -----------------------------------------------------------------------------------------------------------------
+ Question:-viewchild and ContentChild
+ Answer:-viewchild is used to access own template html reference/ access variable or function from child component
+ contentchild is used to access contant projected into the component useing <ng-content>
+ virwchild become available in ngAfterViewinit and contentchild available in ngAfterConrtentInit.

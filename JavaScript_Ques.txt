@@ -1,3 +1,19 @@
+
+
+Question:what is ECMASCRIPT
+Answer:-ECMASCRIPT is standard/specification based o javascript.
+it define
+syntex
+rule
+feature.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Question:-Why do we use closures instead of normal functions?
+Answer:-they allow a function to remember variables from its outer scope even after the outer function has finished execution.
+Stateful
+Variables remembered
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Closure is function along with lexical scope.
 Closures capture variables by reference, not by value, and each function instance maintains its own lexical environment.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -5,10 +21,10 @@ Question:-Hoisting
 Answer:-Javascript move declaration to the top of the scope but only declaration not initializations
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Question:-Call backend
+Question:-Callback
 Answer:- when a function passed an argument to othet function and excute later inside that function is called call back function
-function A(name.callback){
-  conbsole.log(name)
+function A(name,callback){
+  console.log(name)
   callback()
   function B()
 {
