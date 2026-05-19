@@ -57,9 +57,85 @@ greet: function () {
     } 
     }; 
     setTimeout(person.greet,2000);
-Answer:-here passes only function reference not calling function.
-in setTimeout you can write here bind()
-like setTimeout(person.greet.bind(person),2000)
-beacuse of setTimeout it excute later so we use bind not call 
+Answer:-in setTimeout we pass function reference through object not callingits looklike 
+const fn=person.greet
+fn() ----fn not indicate person object it call standalone so here this is window object and print undefined
+here use bind so bind return new function with this 
+so setTimeout(person.greet.bind(person),2000);
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Call Stack + Microtask Queue + Macrotask Queue concept
+
+setTimeout(() => console.log("A"), 0); //macrotask
+Promise.resolve().then(() => {     // microtask      
+  console.log("B");                     
+  setTimeout(() => console.log("C"), 0); //macrotask
+});
+new Promise((res, rej) => {    // immediately run .then run later          
+  console.log("D");                     
+  res();                                
+}).then(() => {                         
+  console.log("E");     //microtask              
+});
+console.log("F"); //synchronus
+
+Output:-'D','F','E','B','A','C'
+
+----------------------------------------------------------------------------------------------------------------------
+const Person = { 
+"name": "", 
+"age": "", 
+"setName": (name) => { this.name = name; }, 
+"setAge": function (age) { this.age = age; } 
+} 
+Person.setName("Rahul");  // setName is arrow function and don't have own this this from parent scope here this ===  person
+Person.setAge(23); //setAge is normal function and in normal function ites refer to person object
+console.log(Person.name); ""
+console.log(Person.age); 23 
+console.log(this.age); here this is window global object in global object there is no age define thats why undefined
+console.log(this.name); "Rahul" because setName is arrow function this.name here global object thats why.
+
+
+--------------------------------------------------------------------------------------------------------------
+export class RegistrationForm implements ngOnInIt{
+form:FormGroup;
+constructor(private fb:FormBuilder){
+
+}
+ngOnInIt(){
+    this.createForm()
+}
+createForm(){
+    this.form=this.fb.group({
+        'name':['',[Validators.required]],
+        'email':['',[Validators.required,Validators.email()]],
+        'password':['',[Validators.required]],
+        'confirmPassword':['',[Validators.required]],
+    },{
+        validator:passwordMatchValidator
+    })
+}
+}
+export class passwordMatchValidator(control:AbstractControl):ValidationError | null{
+    const pass = control.get('password')?.value
+    const confirmPassword = control.get('confirmPassword')?.value
+    if(pass !== confirmPassword){
+        return {passwordMisMatch:true}
+    }
+    return null;
+}
+-----------------------------------------------------------------------------------------------------------------------
+shadowing:-
+declare variable with same name where inner varible hide outer variable inside that scope
+
+let a=10
+{
+    var a=15
+}
+error because let is blocked scoped and var is global and let is define in global thats why
+
+var a=10;
+{
+    let a=15
+}
+perfectly.
