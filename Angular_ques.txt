@@ -119,3 +119,19 @@ What is Redux Pattern in NgRx?
 One way data flow
 Actions trigger state changes
 Immutable state
+
+
+
+Angular Disadvantage
+1=>Complex Architecture
+2=>Debugging can be difficult beacuse of Dependency Injection ,Observable,Zone/Signals
+3>Large Bundle Size
+4=>Frequent update.
+
+What is the main use of a transpiler?
+transpiler convert source code from one programming language to other programming lang.
+angular convert ts code in to js code beacuse browser know js very well.
+
+what is resolver
+preloads data before a route is activated,It ensures that the component has all the 
+necessary data ready when it loads

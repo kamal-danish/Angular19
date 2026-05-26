@@ -572,16 +572,3 @@ console.log(fn());
 Answer:-Undefined
 Explaination:-this is lost when function detached
 fix:-fn.bind(obj)()
-------------------------------------------------------------------------------------------------------------------------------------------
- const a = {};
-       const b = { key: "b" };
-       const c = { key: "c" };
-
-        a[b] = 123;
-        a[c] = 456;
-        console.log(a[b]); //456
-        because javascript internally convert key into string.
-        b.toString="[Object object]"
-        a[[Object object]] =123
-        a[[Object object]] =456
-        a[b]=456

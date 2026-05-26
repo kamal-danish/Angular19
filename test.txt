@@ -114,3 +114,37 @@ Custom Decorator is a function that can be applied to a class, property, method,
 Dom Sanitization is used for clean unsafe content.remove malicious code.
 
 In JavaScript, a function is a block of code that is written to perform a specific task
+
+
+----------------------------------------------------------------------------------
+What is Cypress?
+
+Browser-based E2E testing framework for frontend applications.
+---------------------------------------------------------------------------------
+Why Cypress better than Selenium?
+Faster
+Automatic waits
+Better debugging
+Runs directly in browser
+----------------------------------------------------------------------------------
+
+What is cy.intercept()?
+
+Used to mock or monitor API requests.
+----------------------------------------------------------------------------------
+
+Difference between Cypress and Protractor?
+Protractor is deprecated
+Cypress is modern and faster
+
+----------------------------------------------------------------------------------
+,
+Command	Use
+cy.visit()	Open page
+cy.get()	Find element
+cy.click()	Click element
+cy.type()	Type text
+cy.contains()	Find by text
+cy.wait()	Wait
+cy.intercept()	Mock API
+cy.fixture()	Read test data
