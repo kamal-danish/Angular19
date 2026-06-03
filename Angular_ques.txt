@@ -75,6 +75,12 @@ Computed Signal=>this is readonly don't change forcefully.its update when the it
 Effect:=>An effect is a function that reacts to signal changes.
 
 
+Feature	computed	effect
+Purpose	Value calculate	Side effect
+Returns value	Yes	No
+Runs	Lazy	Immediately
+Example	total, fullName	API call, console log
+
 For Loop contextual Variables | $last $first $odd $even $index $count
 
 @if(last){

@@ -1008,3 +1008,22 @@ window.addEventListener(
  Answer:-viewchild is used to access own template html reference/ access variable or function from child component
  contentchild is used to access contant projected into the component useing <ng-content>
  virwchild become available in ngAfterViewinit and contentchild available in ngAfterConrtentInit.
+
+ ---------------------------------------------------------------------------------------------------------------------------
+ Question:-Memoization
+ Answer:-Memoization is a optimization technique that cache result of a function based on input parameter.
+ if same input came again it will gave result from cache.
+ In Angular PurePipe,NgRx,High Computation.
+
+ -------------------------------------------------------------------------------------------------------
+ Question:-ForwordRef
+ Answer:-If we have multiple service and inject in each other constructor than angular confused which serviceresolve first 
+ here forwordRef comes
+
+ normaly angular tries to resolve dependecies immediately at constructor time but with forwordRef its keep refrence and resolve It
+ later when every thing initialize. 
+----------------------------------------------------------------------------------------------------------------------------------
+Question:-canLoad and canMatch
+Answer:-canLoad is prevent to load lazy-loaded module when return false.
+canMatch:-prevent to match route when return false.it runs before angular activate the route.
+ 

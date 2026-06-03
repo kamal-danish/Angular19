@@ -14,6 +14,9 @@ document.querySelector('#child')
     console.log('child element clicked');
 },false);
 
+// event bubbling is a javascript technique when any event of child element its bubble child to parent 
+// thats call event bubbing and for this bubbling used in parent and handle this event is called event delegation
+
 
 
 // event capturing/tricking
