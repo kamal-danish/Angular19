@@ -498,6 +498,16 @@ Question:-for (var i = 0; i < 3; i++) {
   ((i) => setTimeout(() => console.log(i), 0))(i);
 }
 Answer:-0 1 2
+internally
+const x = 0;
+setTimeout(() => console.log(x), 0);
+
+const y = 1;
+setTimeout(() => console.log(y), 0);
+
+const z = 2;
+setTimeout(() => console.log(z), 0);
+but in let every time new i create.and in var share same var i.and print after setTimeOut
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(0 == false);

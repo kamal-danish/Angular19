@@ -88,8 +88,8 @@ const Person = {
 "setName": (name) => { this.name = name; }, 
 "setAge": function (age) { this.age = age; } 
 } 
-Person.setName("Rahul");  // setName is arrow function and don't have own this this from parent scope here this ===  person
-Person.setAge(23); //setAge is normal function and in normal function ites refer to person object
+Person.setName("Rahul");  // setName is arrow function and don't have own this this from parent scope here.
+Person.setAge(23); //setAge is normal function and in normal function this point out to those object who call function
 console.log(Person.name); ""
 console.log(Person.age); 23 
 console.log(this.age); here this is window global object in global object there is no age define thats why undefined
