@@ -590,3 +590,15 @@ function add(a){
   }
 }
 add(2)(1)(3)
+-------------------------------------------------------------------------------------------
+Question:-Web worker
+Answer:-web worker is javascript feature allow to run javascript code on separate backgound thread .
+Independentto main ui thread.
+
+javascript run on main thread also handle ui interation.web worker move heavey time consuming work on separate
+background thread.so ui don’t freeze.
+-----------------------------------------------------------------------------------
+Question:-Tuple
+Answer:-tuple is fixed length array where each elemnt have different type.
+let user: [number, string, boolean];
+user = [1, 'Alice', true];
