@@ -995,6 +995,10 @@ window.addEventListener(
 
 
  event bus
+ -----------------------------------------------------------------------------------------------------
+ Quesion:-what is Micro-Frontend
+Answer:- When a big project break in to small applications where each application work independently.called micro-frontend.
+ we use micro-frontend for each team work independently no dependecies,better maintainability.
  ---------------------------------------------------------------------------------------------------------------------------
 
  docker build -t angular-app .
@@ -1026,4 +1030,18 @@ window.addEventListener(
 Question:-canLoad and canMatch
 Answer:-canLoad is prevent to load lazy-loaded module when return false.
 canMatch:-prevent to match route when return false.it runs before angular activate the route.
+------------------------------------------------------------------------------------------------------------
+Question:-JWT
+Answer:-Json web token is stateless mechanisam authentication.where user info shared with sign token.
+where token pass each and every request in api and server check with sign signature
+JWT has 3 parts 
+header
+payload
+Signature.
+
+--------------------------------------------------------------------------------------------------
+Question:-Authentication and Authorization
+Answer:-Authentication is a process to verify user,system identity via user credential or Optimization
+And Authorization define what the user is Allowed after authentication like role based access.
+
  
