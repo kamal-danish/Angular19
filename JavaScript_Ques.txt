@@ -599,6 +599,7 @@ javascript run on main thread also handle ui interation.web worker move heavey t
 background thread.so ui don’t freeze.
 -----------------------------------------------------------------------------------
 Question:-Tuple
-Answer:-tuple is fixed length array where each elemnt have different type.
+Answer:-tuple is special type of array where number of element is fixed and each element has known and ordered.
+tuple is fixed length array where each elemnt have different type.
 let user: [number, string, boolean];
 user = [1, 'Alice', true];
