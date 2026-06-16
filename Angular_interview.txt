@@ -1044,4 +1044,49 @@ Question:-Authentication and Authorization
 Answer:-Authentication is a process to verify user,system identity via user credential or Optimization
 And Authorization define what the user is Allowed after authentication like role based access.
 
+
+----------------------------------------------------------------------------------------------------------
+Question:-Change Detection
+Ansular:-Change Dtetection is mechanisam  to kepp ui sync with component.when application
+data change .Angular check wheather component need to update and reflet changes in the dom automatically.
+
+--------------------------------------------------------------------------------------------------------
+Question:-How does Angular know something changed?
+Answer:-Angular use zone.js
+zone.js patch asynchronous operation
+event http resoponse setTimeout promise user Input event.it notifies angular when async task completed.
+then angular run change detection to update UI automatically.
+
+event occurs
+     ↓
+Zone.js detects it
+     ↓
+Angular starts change detection
+     ↓
+Checks component bindings
+     ↓
+Updates DOM if values changed
+
+----------------------------------------------------------------------------------------------------------
+Question:-NgRx over Behaviour Subject
+Answer:-I use Behaviour Subject when simple data sharing.managing simple state like sidebar login info share
+while ngrx is for large application managing statemanagement for complex and enterpeise level application 
+this is follow
+redux pattern to centralized state,reduces action and effect.
+behaviour subject is lightweight.
+Component
+   ↓
+Action
+   ↓
+Effect (API)
+   ↓
+Reducer
+   ↓
+Store
+   ↓
+Selector
+   ↓
+Component
+
+
  

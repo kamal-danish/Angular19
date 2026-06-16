@@ -148,3 +148,52 @@ cy.contains()	Find by text
 cy.wait()	Wait
 cy.intercept()	Mock API
 cy.fixture()	Read test data
+----------------------------------------------------------------------------------------------------
+
+describe('UserComponent', () => {
+
+  let component: UserComponent;
+  let fixture: ComponentFixture<UserComponent>;
+  let userServiceSpy: jasmine.SpyObj<UserService>;
+
+  beforeEach(() => {
+
+    userServiceSpy = jasmine.createSpyObj(
+      'UserService',
+      ['getUsers']
+    );
+
+    TestBed.configureTestingModule({
+      declarations: [UserComponent],
+      providers: [
+        {
+          provide: UserService,
+          useValue: userServiceSpy
+        }
+      ]
+    });
+
+    fixture = TestBed.createComponent(UserComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('should load users on initialization', () => {
+
+    const mockUsers = [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Peter' }
+    ];
+
+    userServiceSpy.getUsers.and.returnValue(
+      of(mockUsers)
+    );
+
+    fixture.detectChanges();
+
+    expect(userServiceSpy.getUsers).toHaveBeenCalled();
+
+    expect(component.users).toEqual(mockUsers);
+
+  });
+
+});
