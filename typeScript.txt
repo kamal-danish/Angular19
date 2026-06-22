@@ -3,16 +3,7 @@ Answer:-Yes,single-threaded it has one callstack and run one-piece of code at a 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Question:-What are closures and do you see any issues with closures?
 Answer:-Memory Leaks,Sharing State,garbage Collected,Loop Problem.
------------------------------------------------------------------------------------------------------------------------------------------------
 
-Question:-What are JavaScript promise utility functions
-Answer:-
-Promise.all():-Run Multiple Promise in parallel resolve when all resolve.Reject immediately if any rejects.
-Promise.allSettled:-Waits for all promises, whether success or failure.
-Promise.race():-Return result of first completed promise.(success/failure)
-promise.any():-Return first successful promise.
-Promise.resolve():-immediately resolve
-Promise.reject():-immediately reject.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 

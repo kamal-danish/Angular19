@@ -113,19 +113,18 @@ Question:-What is Promise chaining?
 Answer:-Promise chaining is the process of executing multiple asynchronous operations one after another, 
 where each .then() returns a new Promise,every .then pass the value.
 
-new Promise((resolve) => {
-  resolve(5);
+new promise((resolve)=>{
+  resolve(10)
 })
-.then(result => {
-  return result * 2;
+.then(num=>{
+  console.log(num)
+  return num*2
+}).then(num=>{
+  console.log(num)
+  return num+2
+}).then(num=>{
+  console.log(num)
 })
-.then(result => {
-  return result * 3;
-})
-.then(finalResult => {
-  console.log(finalResult);
-});
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Observable:-they are data stream that emit value over time.
@@ -603,3 +602,96 @@ Answer:-tuple is special type of array where number of element is fixed and each
 tuple is fixed length array where each elemnt have different type.
 let user: [number, string, boolean];
 user = [1, 'Alice', true];
+
+------------------------------------------------------------------------------------------------------------------
+Question:-Javascript Api Call
+Answer:-fetch('apiURL').then(res=>{
+  if(!res.ok){
+throw new error('')
+  }
+  return res.json()
+}).then(data=>{
+  console.log(data)
+}).catch(error=>{
+  console.log(error)
+})
+
+---------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Question:-What are JavaScript promise utility functions
+Answer:-
+Promise.all():-Run all Promise in parallel wait for all promise complete.If one fail->entire fail.
+const p1=Promise.resolve(10)
+const p2=Promise.resolve(20)
+const p3=Promise.resolve(30)
+
+Promise.all([p1.p2,p3]).then(res=>console.log(res))
+
+Promise.allSettled:-Run all Promise in parallel.wait for all promise success/failure.
+
+Promise.race():-Return first settle promise resolve/reject
+const p1 = new promise(resolve=>setTimeOut(()=>resolve('p1'),1000))
+const p2=new promise(resolve=>setTimeOut(()=>reject('p2'),500))
+Promise.race([p1,p2]).then(result=>{
+  console.log(result) //p2
+})
+
+promise.any():-Return first successful promise.ignore reject
+const p1=Promise.reject('p1')
+const p2=Promise.reject('p2')
+const p3=Promise.resolve('p3')
+Promise.all([p1,p2,p3]).then(res=>console.log(res)) //p3
+
+Promise.resolve():-immediately resolve
+Promise.reject():-immediately reject.
+
+---------------------------------------------------------------------------------------
+merge staging to main
+1=>git branch
+2=>git checkout master //switch to master
+3=>git pull origin main //pull latest code
+4=>git merge staging //Merge staging
+5=>git push origin master //push main/master
+
+-----------------------------------------------------------------------------------------
+If you want to push only 5 specific files from staging to main
+1=>git checout main
+2=>git pull origin main
+3=>git checkout staging file1,file2.....
+4=>git add .
+5=>git commit -m ''
+6=>git push origin main
+
+-------------------------------------------------------------------------------------------------
+ restored file
+ 1=>git checkout path/to/file
+ 2=>git add path/to/file
+ 3=>git commit -m ''
+ 4=>git push origin main
+
+ for delete
+ 1>git rm path/to/file
+ 2=>git checkout path/to/file
+
+ ---------------------------------------------------------------------------------------------
+ Question:-What is cherry-pick?
+ Answer:-Copy specific commit from one branch to another.
+ git cherry-pick commit_id
+
+ -------------------------------------------------------------------------------------------
+ Question:-How to undo last commit?
+ Answer:-git reset --soft HEAD~1 -----------------soft
+ git reset --hard HEAD~1-------------------------hard
+
+ -----------------------------------------------------------------------
+ Question:-Difference between git pull and git fetch?
+git fetch → Download changes only
+git pull → Fetch + Merge
+
+--------------------------------------------------------------
+Question:-Difference between git merge and git rebase?
+merge → Combines branches, keeps history
+rebase → Moves branch on top of another, cleaner history
+
+
