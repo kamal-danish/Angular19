@@ -397,6 +397,9 @@ Question:-const obj = {
 
 obj.fn()();
 Answer:-10
+because when we excute obj.fn() this === obj and its return arrow function in line 395 
+and arrow function does not have own this when again function called this will take from parent outer scope
+which has this === obj and log(obj.val) 10
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-const obj = {
@@ -412,6 +415,7 @@ obj.fn();
 
 Answer:-undefined (or window.val)
 because inner function not bound to obj
+because inner function has own this and second call 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question:-console.log(a);
@@ -695,3 +699,8 @@ merge → Combines branches, keeps history
 rebase → Moves branch on top of another, cleaner history
 
 
+
+
+
+this is a special keyword who represent  current execution context of a function.this value define when function called at runtime
+this refer to current object.
