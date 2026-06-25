@@ -1,0 +1,93 @@
+---------------------Docker File----------------------------------------------------------------
+# Step 1: Build Angular app
+FROM node:18 AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+RUN npm run build --configuration production
+
+
+# Step 2: Serve with Nginx
+FROM nginx:alpine
+
+COPY --from=build /app/dist/your-angular-app /usr/share/nginx/html
+
+# Replace default nginx config (optional)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
+-------------------------------Jenkins------------------------------------------------------
+pipeline {
+  agent any
+
+  environment {
+    IMAGE_NAME = "angular-app"
+    REGISTRY = "your-dockerhub-username"
+  }
+
+  stages {
+
+    stage('Checkout Code') {
+      steps {
+        git branch: 'main',
+            url: 'https://github.com/your-repo/angular-app.git'
+      }
+    }
+
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('Build Angular App') {
+      steps {
+        sh 'npm run build --configuration production'
+      }
+    }
+
+    stage('Build Docker Image') {
+      steps {
+        sh """
+          docker build -t $REGISTRY/$IMAGE_NAME:latest .
+        """
+      }
+    }
+
+    stage('Login DockerHub') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', 
+                          usernameVariable: 'USER', 
+                          passwordVariable: 'PASS')]) {
+          sh 'echo $PASS | docker login -u $USER --password-stdin'
+        }
+      }
+    }
+
+    stage('Push Image') {
+      steps {
+        sh """
+          docker push $REGISTRY/$IMAGE_NAME:latest
+        """
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh """
+          docker stop angular-app || true
+          docker rm angular-app || true
+          docker run -d -p 80:80 --name angular-app $REGISTRY/$IMAGE_NAME:latest
+        """
+      }
+    }
+  }
+}

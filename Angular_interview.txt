@@ -1088,5 +1088,11 @@ Selector
    ↓
 Component
 
+-------------------------------------------------------------------------------------------------------
+In microfrontend architecture, the shell application acts as a container and loads 
+remote applications dynamically at runtime. When a user navigates to a route, 
+the shell fetches the remote entry file, 
+loads the exposed module, and renders it using lazy loading.
 
- 
+
+ ------------------------------------------------------------------------------
