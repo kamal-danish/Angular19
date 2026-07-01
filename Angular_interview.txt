@@ -1096,3 +1096,8 @@ loads the exposed module, and renders it using lazy loading.
 
 
  ------------------------------------------------------------------------------
+
+ Question:-Which Rxjs Operator are used for google search autocomplete
+ Answer:-debounceTime(300),distinctUntilChanged(),filter,switchMap.
+ -----------------------------------------------------------------------------------------
+ Question:-

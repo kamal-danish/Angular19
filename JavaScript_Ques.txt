@@ -688,19 +688,62 @@ If you want to push only 5 specific files from staging to main
  Answer:-git reset --soft HEAD~1 -----------------soft
  git reset --hard HEAD~1-------------------------hard
 
- -----------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------
+
  Question:-Difference between git pull and git fetch?
 git fetch → Download changes only
 git pull → Fetch + Merge
 
---------------------------------------------------------------
+ -------------------------------------------------------------------------------------------
+
 Question:-Difference between git merge and git rebase?
 merge → Combines branches, keeps history
 rebase → Moves branch on top of another, cleaner history
 
-
-
-
+ -------------------------------------------------------------------------------------------
 
 this is a special keyword who represent  current execution context of a function.this value define when function called at runtime
 this refer to current object.
+
+ -------------------------------------------------------------------------------------------
+Question:-let arr=[1,2,3]
+arr[10]=5
+why arr.length=11
+Answer:Because in javascript array length count Highest index +1 
+1,2,3,empty.....5
+
+--------------------------------------------------------------------------------------------------------
+Question:-find pair who sum of 10 in javascript
+Answer:-
+let arr = [1, 9, 2, 8, 3, 7, 4, 6];
+let target = 10;
+let seen = new Set();-------
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] + arr[j] === target) {
+      console.log(arr[i], arr[j]);
+    }
+  }
+}
+
+through set
+for (let num of arr) {
+  let complement = target - num;
+
+  if (seen.has(complement)) {
+    console.log(complement, num);
+  }
+
+  seen.add(num);
+}
+step by step:-
+line number 720 create object seen={}
+than target-num = 10-1=9
+seen.has(9) ---false
+seen.add(1)-----seen={1}
+
+again
+target 10-9=1
+seen.has(1) --true
+print--(1,9)
+
