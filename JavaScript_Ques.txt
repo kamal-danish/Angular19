@@ -16,6 +16,14 @@ Variables remembered
 
 Closure is function along with lexical scope.
 Closures capture variables by reference, not by value, and each function instance maintains its own lexical environment.
+function outer(){
+  var a=10;
+  function inner(){
+    console.log(a)
+  }
+}
+var z= x();
+z()
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Question:-Hoisting
 Answer:-Javascript move declaration to the top of the scope but only declaration not initializations

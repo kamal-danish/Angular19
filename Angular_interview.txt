@@ -1100,4 +1100,21 @@ loads the exposed module, and renders it using lazy loading.
  Question:-Which Rxjs Operator are used for google search autocomplete
  Answer:-debounceTime(300),distinctUntilChanged(),filter,switchMap.
  -----------------------------------------------------------------------------------------
- Question:-
+ Question:-How do you share libraries if Angular versions are different?
+ Answer:-If the Angular versions are different, I don't share Angular framework libraries because that can cause version conflicts. 
+ Instead, I create a separate shared library containing only framework-independent code like TypeScript interfaces, constants, utility functions, 
+ and business logic. Both micro frontends install and use that shared library. For communication between micro frontends, I use REST APIs or an event bus. 
+ If all applications use the same Angular version, then I use Module Federation's shared configuration to share Angular dependencies as singletons.
+
+ shared: {
+  "@angular/core": { singleton: true },
+  "@angular/common": { singleton: true },
+  "@angular/router": { singleton: true }
+}
+this.is webpack module federation Angular libraries share multiple application bcoz no need to copy each your own packages
+
+
+------------------------------------------------------------------------------------------------------------------------
+Question:-@if,@for,@defer
+Answer:-For better Performance,more efficient,no need for ng-template for condition based *ngIf with else
+@for better performance no need trackby function in ts file
